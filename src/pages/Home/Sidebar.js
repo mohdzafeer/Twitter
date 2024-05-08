@@ -14,6 +14,7 @@ import { useAuthState, useSignOut } from 'react-firebase-hooks/auth';
 import { auth } from '../../firebase.init';
 import { LoadingPage } from '../LoadingPage/LoadingPage';
 import { Link } from 'react-router-dom';
+import CustomLinks from './CustomLinks';
 
 export const Sidebar = () => {
     const navigate = useNavigate()
@@ -37,14 +38,14 @@ export const Sidebar = () => {
     return (
         <div>
             <img className=' mx-5 my-2 cursor-pointer' src={twitter} width={70} alt='twitter' />
-            <Link to='/home/feed' className='flex items-center mx-5 my-2 text-2xl px-4 cursor-pointer rounded-full hover:bg-blue-100 hover:text-blue-400 hover:font-semibold active:bg-blue-200 duration-150'><span><FaHome /></span><span className='flex items-center mx-5 my-2 font-semibold'>Home</span></Link>
-            <Link to='/home/explore' className='flex items-center mx-5 my-2 text-2xl px-4 cursor-pointer rounded-full hover:bg-blue-100 hover:text-blue-400 hover:font-semibold active:bg-blue-200 duration-150'><span><GoHash /></span><span className='flex items-center mx-5 my-2 font-semibold'>Explore</span></Link>
-            <Link to='/home/notification' className='flex items-center mx-5 my-2 text-2xl px-4 cursor-pointer rounded-full hover:bg-blue-100 hover:text-blue-400 hover:font-semibold active:bg-blue-200 duration-150'><span><FaRegBell /></span><span className='flex items-center mx-5 my-2 font-semibold'>Notifications</span></Link>
-            <Link to='/home/messages' className='flex items-center mx-5 my-2 text-2xl px-4 cursor-pointer rounded-full hover:bg-blue-100 hover:text-blue-400 hover:font-semibold active:bg-blue-200 duration-150'><span><SlEnvolope /></span><span className='flex items-center mx-5 my-2 font-semibold'>Messages</span></Link>
-            <Link to='/home/bookmark' className='flex items-center mx-5 my-2 text-2xl px-4 cursor-pointer rounded-full hover:bg-blue-100 hover:text-blue-400 hover:font-semibold active:bg-blue-200 duration-150'><span><FaRegBookmark /></span><span className='flex items-center mx-5 my-2 font-semibold'>Bookmarks</span></Link>
-            <Link to='/home/lists' className='flex items-center mx-5 my-2 text-2xl px-4 cursor-pointer rounded-full hover:bg-blue-100 hover:text-blue-400 hover:font-semibold active:bg-blue-200 duration-150'><span><LiaClipboardListSolid /></span><span className='flex items-center mx-5 my-2 font-semibold'>Lists</span></Link>
-            <Link to='/home/profile' className='flex items-center mx-5 my-2 text-2xl px-4 cursor-pointer rounded-full hover:bg-blue-100 hover:text-blue-400 hover:font-semibold active:bg-blue-200 duration-150'><span><FaRegUser /></span><span className='flex items-center mx-5 my-2 font-semibold'>Profile</span></Link>
-            <Link to='/home/more' className='flex items-center mx-5 my-2 text-2xl px-4 cursor-pointer rounded-full hover:bg-blue-100 hover:text-blue-400 hover:font-semibold active:bg-blue-200 duration-150'><span><CiCircleMore /></span><span className='flex items-center mx-5 my-2 font-semibold'>More</span></Link>
+            <CustomLinks to='/home/feed' className='flex items-center mx-5 my-2 text-2xl px-4 cursor-pointer rounded-full hover:bg-blue-100 hover:text-blue-400 hover:font-semibold active:bg-blue-200 duration-150'><span><FaHome /></span><span className='flex items-center mx-5 my-2 font-semibold'>Home</span></CustomLinks>
+            <CustomLinks to='/home/explore' className='flex items-center mx-5 my-2 text-2xl px-4 cursor-pointer rounded-full hover:bg-blue-100 hover:text-blue-400 hover:font-semibold active:bg-blue-200 duration-150'><span><GoHash /></span><span className='flex items-center mx-5 my-2 font-semibold'>Explore</span></CustomLinks>
+            <CustomLinks to='/home/notification' className='flex items-center mx-5 my-2 text-2xl px-4 cursor-pointer rounded-full hover:bg-blue-100 hover:text-blue-400 hover:font-semibold active:bg-blue-200 duration-150'><span><FaRegBell /></span><span className='flex items-center mx-5 my-2 font-semibold'>Notifications</span></CustomLinks>
+            <CustomLinks to='/home/messages' className='flex items-center mx-5 my-2 text-2xl px-4 cursor-pointer rounded-full hover:bg-blue-100 hover:text-blue-400 hover:font-semibold active:bg-blue-200 duration-150'><span><SlEnvolope /></span><span className='flex items-center mx-5 my-2 font-semibold'>Messages</span></CustomLinks>
+            <CustomLinks to='/home/bookmark' className='flex items-center mx-5 my-2 text-2xl px-4 cursor-pointer rounded-full hover:bg-blue-100 hover:text-blue-400 hover:font-semibold active:bg-blue-200 duration-150'><span><FaRegBookmark /></span><span className='flex items-center mx-5 my-2 font-semibold'>Bookmarks</span></CustomLinks>
+            <CustomLinks to='/home/lists' className='flex items-center mx-5 my-2 text-2xl px-4 cursor-pointer rounded-full hover:bg-blue-100 hover:text-blue-400 hover:font-semibold active:bg-blue-200 duration-150'><span><LiaClipboardListSolid /></span><span className='flex items-center mx-5 my-2 font-semibold'>Lists</span></CustomLinks>
+            <CustomLinks to='/home/profile' className='flex items-center mx-5 my-2 text-2xl px-4 cursor-pointer rounded-full hover:bg-blue-100 hover:text-blue-400 hover:font-semibold active:bg-blue-200 duration-150'><span><FaRegUser /></span><span className='flex items-center mx-5 my-2 font-semibold'>Profile</span></CustomLinks>
+            <CustomLinks to='/home/more' className='flex items-center mx-5 my-2 text-2xl px-4 cursor-pointer rounded-full hover:bg-blue-100 hover:text-blue-400 hover:font-semibold active:bg-blue-200 duration-150'><span><CiCircleMore /></span><span className='flex items-center mx-5 my-2 font-semibold'>More</span></CustomLinks>
             <button className='w-full flex items-center justify-center mx-5 my-2 text-2xl font-bold bg-blue-500 h-14 rounded-full text-white hover:bg-blue-600 active:bg-blue-700 duration-150' >Tweet</button>
 
             <div className='flex gap-2 mt-48 rounded-full hover:bg-gray-200 h-16 cursor-pointer active:bg-gray-300'>

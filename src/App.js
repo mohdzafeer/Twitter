@@ -14,7 +14,7 @@ import Lists from "./pages/Lists/Lists";
 import { Profile } from "./pages/Profile/Profile";
 import More from "./pages/More/More";
 import { Feed } from "./pages/Feed/Feed";
-// import { Feed } from "@mui/icons-material";
+
 
 
  
@@ -26,7 +26,9 @@ function App() {
       
         <Router>
           <Routes>
-            <Route path="/" element={<ProtectedRoute><Home/></ProtectedRoute>}/>
+            <Route path="/" element={<ProtectedRoute><Home/></ProtectedRoute>}>
+              <Route index element={<Feed/>}/>
+            </Route>
             <Route path="/home" element={<ProtectedRoute><Home/></ProtectedRoute>}>
               <Route path="feed" element={<Feed/>}/>
               <Route path="explore" element={<Explore/>}/>

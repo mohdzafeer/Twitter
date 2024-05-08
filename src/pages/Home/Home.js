@@ -15,7 +15,7 @@ export const Home=()=>{
                <Sidebar />
             </div>
             <div className='flex flex-col px-16 py-10 mx-7 w-5/12  border-r-2 border-opacity-50 border-blue-200' >
-                <Outlet></Outlet>
+                <Outlet/>
             </div>
             <div className='flex flex-col px-16 py-10 w-3/12  border-r-2 border-opacity-50 border-blue-200'>
                 <Widgets/>
