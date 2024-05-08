@@ -37,7 +37,7 @@ export const Sidebar = () => {
 
     return (
         <div>
-            <img className=' mx-5 my-2 cursor-pointer' src={twitter} width={70} alt='twitter' />
+            <Link to='/'><img className=' mx-5 my-2 cursor-pointer' src={twitter} width={70} alt='twitter' /></Link>
             <CustomLinks to='/home/feed' className='flex items-center mx-5 my-2 text-2xl px-4 cursor-pointer rounded-full hover:bg-blue-100 hover:text-blue-400 hover:font-semibold active:bg-blue-200 duration-150'><span><FaHome /></span><span className='flex items-center mx-5 my-2 font-semibold'>Home</span></CustomLinks>
             <CustomLinks to='/home/explore' className='flex items-center mx-5 my-2 text-2xl px-4 cursor-pointer rounded-full hover:bg-blue-100 hover:text-blue-400 hover:font-semibold active:bg-blue-200 duration-150'><span><GoHash /></span><span className='flex items-center mx-5 my-2 font-semibold'>Explore</span></CustomLinks>
             <CustomLinks to='/home/notification' className='flex items-center mx-5 my-2 text-2xl px-4 cursor-pointer rounded-full hover:bg-blue-100 hover:text-blue-400 hover:font-semibold active:bg-blue-200 duration-150'><span><FaRegBell /></span><span className='flex items-center mx-5 my-2 font-semibold'>Notifications</span></CustomLinks>
