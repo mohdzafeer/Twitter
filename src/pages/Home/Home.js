@@ -1,11 +1,6 @@
-
-import { useAuthState } from 'react-firebase-hooks/auth';
-import { Main } from './Main';
 import { Sidebar } from './Sidebar';
 import { Widgets } from './Widgets';
-import { auth } from '../../firebase.init';
-import { signOut } from 'firebase/auth';
-import { Outlet, useNavigate } from 'react-router';
+import { Outlet } from 'react-router';
 export const Home=()=>{
     
 
