@@ -1,11 +1,10 @@
-import react, { useEffect, useState } from 'react'
+
 import { IoCloseSharp } from "react-icons/io5";
 import { FaRupeeSign } from "react-icons/fa";
 import { IoCheckmark } from "react-icons/io5";
 import { Link } from 'react-router-dom';
 import './Premium.css'
-import useLoggedInUser from '../../hooks/useLoggedInUser';
-import { auth } from '../../firebase.init';
+
 import axios from 'axios';
 
 

@@ -4,14 +4,14 @@ import { GoHash } from "react-icons/go";
 import { FaRegBell } from "react-icons/fa";
 import { SlEnvolope } from "react-icons/sl";
 import { FaRegBookmark } from "react-icons/fa";
-import { LiaClipboardListSolid } from "react-icons/lia";
+
 import { FaRegUser } from "react-icons/fa6";
 import { CiCircleMore } from "react-icons/ci";
 import { SlSocialTwitter } from "react-icons/sl";
 import { useState } from 'react';
 import { Divider, Menu, MenuItem } from '@mui/material';
 import { useNavigate } from 'react-router';
-import { useAuthState, useSignOut } from 'react-firebase-hooks/auth';
+import {  useSignOut } from 'react-firebase-hooks/auth';
 import { auth } from '../../firebase.init';
 import { Link } from 'react-router-dom';
 import CustomLinks from './CustomLinks';
@@ -20,9 +20,9 @@ import useLoggedInUser from '../../hooks/useLoggedInUser';
 
 export const Sidebar = () => {
     const navigate = useNavigate()
-    const user = useAuthState(auth)
+    // const user = useAuthState(auth)
 
-    const [signOut, loading, error] = useSignOut(auth);
+    const [signOut] = useSignOut(auth);
 
 
 
@@ -65,7 +65,7 @@ export const Sidebar = () => {
 
             <div className='flex gap-2 mt-28 lg:mt-60 rounded-full bg-gray-100 shadow-lg hover:bg-gray-200 duration-150 h-24 max-h-32 cursor-pointer active:bg-gray-300 px-3 py-2'>
                 <div className='w-44  border-white border-4 rounded-full overflow-hidden flex justify-center items-center bg-white shadow-xl'>
-                <img className='min-w-full min-h-full shrink-0' width={100} src={userProfilePic} />
+                <img className='min-w-full min-h-full shrink-0' width={100} src={userProfilePic} alt='userProfil' />
                 </div>
                 <Link to='/home/profile' className='flex flex-col justify-center items-start'>
                     <div className='flex flex-col justify-center items-start'>
@@ -91,7 +91,7 @@ export const Sidebar = () => {
                         <MenuItem className='flex flex-col justify-start'>
                             <div className='flex gap-2'>
                                 <div className='h-14 w-14 border-white border-4 rounded-full overflow-hidden flex justify-center items-center bg-white shadow-xl'>
-                                    <img className='rounded-full min-w-full min-h-full shrink-0 overflow-hidden' width={100} src={userProfilePic} />
+                                    <img className='rounded-full min-w-full min-h-full shrink-0 overflow-hidden' width={100} src={userProfilePic} alt='userProfile' />
                                 </div>
                                 <Link to='/home/profile'>
                                     <div className='flex flex-col justify-center items-start'>
