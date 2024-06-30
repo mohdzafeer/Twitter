@@ -6,6 +6,8 @@ import { Link, useNavigate } from 'react-router-dom'
 import { auth, provider } from '../../firebase.init'
 import {  signInWithPopup } from 'firebase/auth'
 import{useCreateUserWithEmailAndPassword}from 'react-firebase-hooks/auth'
+import axios from 'axios'
+import { LoadingPage } from '../LoadingPage/LoadingPage'
 
 
 export const SignUp = () => {
@@ -20,13 +22,42 @@ export const SignUp = () => {
         loading,
         error,
         
+        
     ]=useCreateUserWithEmailAndPassword(auth)
+
+    if(loading){
+        console.log("Loading...")
+        
+        
+    }
+
+    if(error){
+        console.log(error.message)
+    }
 
     const handleSubmit = (e) => {
         e.preventDefault()
         console.log(email,password)
-        createUserWithEmailAndPassword(email, password)
-        navigate('/')
+         
+         const SigninwithEmailAndPassword = async () => {
+            const result=await createUserWithEmailAndPassword(email, password)
+            // console.log(result)
+            navigate("/")
+        }
+
+        SigninwithEmailAndPassword()
+        //  navigate('/')
+
+        const user={
+            username,
+            name,
+            email,
+
+        }
+
+        axios.post(`http://localhost:5000/register`, user)
+        
+
     }
 
     console.log(user)
@@ -50,7 +81,7 @@ export const SignUp = () => {
     //    })
        
     // }
-
+ 
     return (
         <div className='h-screen w-screen flex'>
             <div className='w-2/4 overflow-hidden hidden lg:inline-flex '><img src={twitter} className=' h-screen' alt='Twitter Image' /></div>

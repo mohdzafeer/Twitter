@@ -7,9 +7,11 @@ const CustomLinks = ({ children, to, ...props }) => {
     return (
         <div>
             <Link
-                className='hover:bg-blue-200'
+                
                 style={{
+                    
                     color: match ? 'skyblue' : 'black',
+                   
                     
                 }}
                 to={to}

@@ -2,7 +2,7 @@ import react from 'react'
 const Messages = () => {
 
     return (
-        <div>Messages</div>
+        <div>Messages section under development</div>
     )
 }
 export default Messages
