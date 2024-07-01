@@ -30,7 +30,7 @@ const Post = ({ p }) => {
     // log()
 
     // console.log(p)
-    const { name, username, photo, post, profilePhoto } = p;
+    const { name, username, photo, post, profilePhoto ,date} = p;
     return (
         <div className='border rounded-lg my-10 lg:p-5 py-5 px-1'>
             <div className='flex border-b-2 pb-5'>
@@ -48,11 +48,13 @@ const Post = ({ p }) => {
                     }</p>
                 </div>
             </div>
-            <div className='border-b-2 pb-2 w-full '>
+            <div className='mb-2 pb-2 w-full '>
                 {photo && <img className=' rounded-lg min-w-full mt-2' src={photo} height={400} />}
                 <p className='pt-2 font-sans font-semibold'>{post}</p>
             </div>
-
+                <div className='border-b-2 pb-2 w-full text-sm text-blue-400 font-semibold'>
+                    {date && <p>{date.split('T')[0]}</p>}
+                </div>
 
             <div className='flex justify-around pt-2'>
                 <TbMessageCircle className='font-bold text-xl cursor-pointer opacity-60 hover:opacity-100 duration-150' />

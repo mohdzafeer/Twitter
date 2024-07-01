@@ -14,6 +14,8 @@ const TweetBox = () => {
     const [isLoading, setIsLoading] = useState(false)
     const [loggedInUser] = useLoggedInUser()
     const [email, setEmail] = useState('')
+    const [date, setDate] = useState('')
+    const [time, setTime] = useState('')
     // console.log(loggedInUser)
 
     const user = useAuthState(auth)
@@ -75,6 +77,8 @@ const TweetBox = () => {
                     username: userName,
                     name: Name,
                     email: Email,
+                    date: new Date(),
+                    // time: date.getTime(),
                 }
                 console.log(userPost);
                 fetch('http://localhost:5000/post', {
@@ -97,6 +101,8 @@ const TweetBox = () => {
                     username: userName,
                     name: Name,
                     email: Email,
+                    date: new Date(),
+                    // time: date.getTime(),
                 }
                 console.log(userPost);
                 fetch('http://localhost:5000/post', {
