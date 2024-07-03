@@ -52,7 +52,7 @@ export const Widgets = () => {
                 <FaSearch className="text-xl cursor-pointer opacity-60 hover:opacity-100 hover:scale-105 duration-150" />
             </div>
 
-            <h1 className="mt-5 mb-10 text-3xl font-bold">What's happening!</h1>
+            <h1 className="mt-5 mb-10 text-3xl font-bold">{t(`What's happening`)}!</h1>
 
 
 
