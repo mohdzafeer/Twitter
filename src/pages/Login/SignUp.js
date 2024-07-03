@@ -7,7 +7,7 @@ import { auth, provider } from '../../firebase.init'
 import {  signInWithPopup } from 'firebase/auth'
 import{useCreateUserWithEmailAndPassword}from 'react-firebase-hooks/auth'
 import axios from 'axios'
-import { LoadingPage } from '../LoadingPage/LoadingPage'
+// import { LoadingPage } from '../LoadingPage/LoadingPage'
 
 
 export const SignUp = () => {
@@ -40,7 +40,7 @@ export const SignUp = () => {
         console.log(email,password)
          
          const SigninwithEmailAndPassword = async () => {
-            const result=await createUserWithEmailAndPassword(email, password)
+            await createUserWithEmailAndPassword(email, password)
             // console.log(result)
             navigate("/")
         }
@@ -84,7 +84,7 @@ export const SignUp = () => {
  
     return (
         <div className='h-screen w-screen flex'>
-            <div className='w-2/4 overflow-hidden hidden lg:inline-flex '><img src={twitter} className=' h-screen' alt='Twitter Image' /></div>
+            <div className='w-2/4 overflow-hidden hidden lg:inline-flex '><img src={twitter} className=' h-screen' alt='Twitter' /></div>
             <div className='lg:w-2/4 flex flex-col w-full'>
                 <div className='flex flex-col justify-start p-10'>
                     <img src={twitterlogo} width={50} alt='Twitter Logo' />

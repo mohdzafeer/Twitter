@@ -1,8 +1,8 @@
-import { useAuthState } from 'react-firebase-hooks/auth';
+// import { useAuthState } from 'react-firebase-hooks/auth';
 import { Sidebar } from './Sidebar';
 import { Widgets } from './Widgets';
 import { Outlet } from 'react-router';
-import { auth } from '../../firebase.init';
+// import { auth } from '../../firebase.init';
 
 import { GiHamburgerMenu } from "react-icons/gi";
 import { Link } from 'react-router-dom';
@@ -10,7 +10,7 @@ import { Link } from 'react-router-dom';
 // import useLoggedInUser from '../../hooks/useLoggedInUser';
 export const Home = () => {
 
-    const user = useAuthState(auth)
+    // const user = useAuthState(auth)
     // console.log(user[0].email)
     // const [loggedinuser]=useLoggedInUser()
     // console.log(loggedinuser)  .

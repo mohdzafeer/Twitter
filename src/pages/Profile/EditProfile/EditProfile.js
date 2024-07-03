@@ -4,8 +4,9 @@ import { Box } from '@mui/material'
 import { IoIosCloseCircleOutline } from "react-icons/io";
 import { MdOutlineKeyboardArrowRight } from "react-icons/md";
 import axios from 'axios';
-import useLoggedInUser from '../../../hooks/useLoggedInUser';
+// import useLoggedInUser from '../../../hooks/useLoggedInUser';
 import { auth } from '../../../firebase.init';
+import { useTranslation } from 'react-i18next';
 
 const style = {
     position: 'absolute',
@@ -24,10 +25,10 @@ const style = {
 
 function EditChild({ DOB, setDOB }) {
     const [open, setOpen] = useState(false)
-    const handleopen = () => {
-        setOpen(true)
+    // const handleopen = () => {
+    //     setOpen(true)
 
-    }
+    // }
     const handleclose = () => {
         setOpen(false)
     }
@@ -69,6 +70,13 @@ export default function EditProfile({ user, loggedInUser }) {
     // const existingWebsite=loggedInUser[0]?.website ? loggedInUser[0].website : ''
     // const existingDOB=loggedInUser[0]?.DOB ? loggedInUser[0].DOB : ''
 
+    const { t } = useTranslation();
+
+    // const changeLanguage = (lng) => {
+    //     i18n.changeLanguage(lng);
+    //   };
+
+
     const [open, setOpen] = useState(false)
     const [name, setName] = useState(loggedInUser[0?.name])
     const [username, setUsername] = useState(loggedInUser[0?.username])
@@ -102,7 +110,7 @@ export default function EditProfile({ user, loggedInUser }) {
 
     return (
         <div>
-            <button className='absolute right-3 bottom-auto bg-blue-600 hover:bg-blue-700  active:bg-blue-600 duration-300 px-4 py-2 mx-5 mt-5  font-bold text-white border hover:border-black rounded-full' onClick={() => setOpen(true)}>Edit profile</button>
+            <button className='absolute right-3 bottom-auto bg-blue-600 hover:bg-blue-700  active:bg-blue-600 duration-300 px-4 py-2 mx-5 mt-5  font-bold text-white border hover:border-black rounded-full' onClick={() => setOpen(true)}>{t('Edit Profile')}</button>
 
             <Modal
                 open={open}
@@ -114,21 +122,21 @@ export default function EditProfile({ user, loggedInUser }) {
                         <IconButton onClick={() => setOpen(false)}><IoIosCloseCircleOutline /></IconButton>
                         <div className='flex items-center justify-between'>
                             <h2 className='lg:text-2xl lg:font-bold font-semibold'>Edit profile</h2>
-                            <button className='lg:px-4 px-2 lg:py-2 py-1 bg-blue-500 hover:bg-blue-600 active:bg-blue-500 font-bold m-2 rounded-full text-white duration-300' onClick={handleSave}>Save</button>
+                            <button className='lg:px-4 px-2 lg:py-2 py-1 bg-blue-500 hover:bg-blue-600 active:bg-blue-500 font-bold m-2 rounded-full text-white duration-300' onClick={handleSave}>{t('Save')}</button>
                         </div>
                     </div>
                     <div>
                         <h1><span className='font-semibold'>Email :</span> <span className='italic'>{loggedInUser[0]?.email ? loggedInUser[0]?.email : auth.currentUser?.email}</span></h1>
                     </div>
                     <form className='flex flex-col gap-2 mt-5'>
-                        <TextField fullWidth label='Name' variant='filled' onChange={(e) => setName(e.target.value)} />
-                        <TextField fullWidth label='Username' variant='filled' onChange={(e) => setUsername(e.target.value)} />
+                        <TextField fullWidth label={t('Name')} variant='filled' onChange={(e) => setName(e.target.value)} />
+                        <TextField fullWidth label={t('Username')} variant='filled' onChange={(e) => setUsername(e.target.value)} />
                         <TextField fullWidth label='Bio' variant='filled' onChange={(e) => setBio(e.target.value)} />
-                        <TextField fullWidth label='Location' variant='filled' onChange={(e) => setLocation(e.target.value)} />
-                        <TextField fullWidth label='Website' variant='filled' onChange={(e) => setWebsite(e.target.value)} />
+                        <TextField fullWidth label={t('Location')} variant='filled' onChange={(e) => setLocation(e.target.value)} />
+                        <TextField fullWidth label={t('Website')}variant='filled' onChange={(e) => setWebsite(e.target.value)} />
                     </form>
                     <div>
-                        <p className='font-bold mt-10'>Birth date</p>
+                        <p className='font-bold mt-10'>{t('Birth Date')}</p>
                         
                     </div>
                     <div>
@@ -143,7 +151,7 @@ export default function EditProfile({ user, loggedInUser }) {
 
                         <EditChild DOB={DOB} setDOB={setDOB} />
                         <div className='flex items-center gap-3 hover:bg-gray-300 duration-300 cursor-pointer py-2 rounded-lg font-bold mt-5'>
-                            <h2 className='text-xl' onClick={()=>setOpen(false)}>Switch to Professional Account</h2>
+                            <h2 className='text-xl' onClick={()=>setOpen(false)}>{t('Switch to Profession Account')}</h2>
                             <MdOutlineKeyboardArrowRight className='text-xl' />
                         </div>
 

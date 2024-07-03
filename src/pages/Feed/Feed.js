@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react"
 import TweetBox from "./TweetBox/TweetBox"
-import axios from "axios"
+// import axios from "axios"
 import Post from "./post/Post"
 
 export const Feed=()=>{

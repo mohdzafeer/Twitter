@@ -1,30 +1,39 @@
-import react, { useState } from 'react'
+import  { useState } from 'react'
 import { MdOutlineAddPhotoAlternate } from "react-icons/md";
 import axios from "axios"
 import useLoggedInUser from '../../../hooks/useLoggedInUser';
-import { useAuthState } from 'react-firebase-hooks/auth';
+// import { useAuthState } from 'react-firebase-hooks/auth';
 import { auth } from '../../../firebase.init';
 import { Link } from 'react-router-dom'
+import { useTranslation } from 'react-i18next';
+
+// import Date from "./Date";
 const TweetBox = () => {
 
     const [post, setpost] = useState("")
     const [imageURL, setimageURL] = useState("")
-    const [name, setName] = useState("")
-    const [username, setUsername] = useState("")
+    // const [name, setName] = useState("")
+    // const [username, setUsername] = useState("")
     const [isLoading, setIsLoading] = useState(false)
     const [loggedInUser] = useLoggedInUser()
-    const [email, setEmail] = useState('')
-    const [date, setDate] = useState('')
-    const [time, setTime] = useState('')
+    // const [email, setEmail] = useState('')
+    // const [date, setDate] = useState('')
+    // const [time, setTime] = useState('')
     // console.log(loggedInUser)
 
-    const user = useAuthState(auth)
+    // const user = useAuthState(auth)
 
 
 
     const googleUserProfilePic = auth?.currentUser?.photoURL
     const userProfilePic = loggedInUser[0]?.profileImage ? loggedInUser[0]?.profileImage : googleUserProfilePic ? googleUserProfilePic : "https://cdn-icons-png.flaticon.com/512/149/149071.png"
     const Name = loggedInUser[0]?.name ? loggedInUser[0].name : auth.currentUser?.displayName;
+
+    // const todays_date=new Date()
+    // const hours=Date.getHours()
+    // const minutes=date.getMinutes()
+    const hours=new Date().getHours()
+    const minutes=new Date().getMinutes()
 
 
     // const googleEmail = auth.currentUser?.email
@@ -79,6 +88,8 @@ const TweetBox = () => {
                     email: Email,
                     date: new Date(),
                     // time: date.getTime(),
+                    hours:hours,
+                    minutes: minutes,
                 }
                 console.log(userPost);
                 fetch('http://localhost:5000/post', {
@@ -103,6 +114,8 @@ const TweetBox = () => {
                     email: Email,
                     date: new Date(),
                     // time: date.getTime(),
+                    hours:hours,
+                    minutes: minutes,
                 }
                 console.log(userPost);
                 fetch('http://localhost:5000/post', {
@@ -129,6 +142,10 @@ const TweetBox = () => {
     }
 
 
+    const { t} = useTranslation();
+
+    
+
 
     return (
         <div className='rounded-xl border  px-3 py-2 shadow-xl my-10 flex flex-col  gap-4'>
@@ -141,7 +158,7 @@ const TweetBox = () => {
                         className='rounded-full'
                     />
                 </Link>
-                <p className='text-gray-500'>What's happening {Name} ?</p>
+                <p className='text-gray-500'>{t(`What's happening`)} {Name} ?</p>
             </div>
             <form className='flex items-center gap-3 mb-5 px-3' onSubmit={handleTweet}>
                 <div>
@@ -150,12 +167,12 @@ const TweetBox = () => {
                             isLoading ?
                                 <div className='flex flex-col items-center'>
                                     <MdOutlineAddPhotoAlternate className='text-yellow-300 animate-bounce text-2xl cursor-pointer hover:text-blue-500 hover:bg-gray-100 ' />
-                                    <p className='text-sm'>Uploading...</p>
+                                    <p className='text-sm'>{t('Uploading')}...</p>
                                 </div>
                                 : <p>{imageURL ?
                                     <div className='flex flex-col items-center'>
                                         <MdOutlineAddPhotoAlternate className='text-green-400 text-2xl cursor-pointer hover:text-blue-500 hover:bg-gray-100 ' />
-                                        <p className='text-sm'>Uploaded</p>
+                                        <p className='text-sm'>{t('Uploaded')}</p>
                                     </div>
                                     : <MdOutlineAddPhotoAlternate className='text-blue-400 text-2xl cursor-pointer hover:text-blue-500 hover:bg-gray-100 active:text-blue-600' />}</p>
                         }
@@ -170,8 +187,8 @@ const TweetBox = () => {
 
                 <input
                     onChange={(e) => setpost(e.target.value)}
-                    className='m-2 px-3 py-2 bg-blue-100  rounded-full w-2/3 lg:font-semibold font-normal' placeholder='Enter your thought here' />
-                <button type="submit" className="lg:m-2 lg:px-10 px-2 lg:py-2 py-1 bg-blue-500 hover:bg-blue-600 active:bg-blue-700 duration-200 text-white cursor-pointer rounded-full lg:font-bold font-normal">Tweet</button>
+                    className='m-2 px-3 py-2 bg-blue-100  rounded-full w-2/3 lg:font-semibold font-normal' placeholder={t('Enter your though here')} />
+                <button type="submit" className="lg:m-2 lg:px-10 px-2 lg:py-2 py-1 bg-blue-500 hover:bg-blue-600 active:bg-blue-700 duration-200 text-white cursor-pointer rounded-full lg:font-bold font-normal">{t('Tweet')}</button>
             </form>
         </div>
     )

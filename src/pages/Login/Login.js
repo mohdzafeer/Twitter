@@ -69,7 +69,7 @@ export const Login = () => {
 
     return (
         <div className='h-screen w-screen flex'>
-            <div className='w-2/4 overflow-hidden hidden lg:inline-flex '><img src={twitter} className=' h-screen' alt='Twitter Image' /></div>
+            <div className='w-2/4 overflow-hidden hidden lg:inline-flex '><img src={twitter} className=' h-screen' alt='Twitter' /></div>
             <div className='lg:w-2/4 flex flex-col w-full'>
                 <div className='flex flex-col justify-start p-10'>
                     <img src={twitterlogo} width={150} alt='Twitter Logo' />
