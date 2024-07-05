@@ -28,6 +28,7 @@
     "react-scripts": "5.0.1",
     "react-twitter-embed": "^4.0.4",
     "tailwind-scrollbar": "^3.1.0",
+    "ua-parser-js": "^1.0.38",
     "web-vitals": "^2.1.4"
   },
   "scripts": {

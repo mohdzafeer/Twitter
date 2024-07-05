@@ -131,7 +131,7 @@ export default function EditProfile({ user, loggedInUser }) {
                     <form className='flex flex-col gap-2 mt-5'>
                         <TextField fullWidth label={t('Name')} variant='filled' onChange={(e) => setName(e.target.value)} />
                         <TextField fullWidth label={t('Username')} variant='filled' onChange={(e) => setUsername(e.target.value)} />
-                        <TextField fullWidth label='Bio' variant='filled' onChange={(e) => setBio(e.target.value)} />
+                        <TextField fullWidth label={t('Bio')} variant='filled' onChange={(e) => setBio(e.target.value)} />
                         <TextField fullWidth label={t('Location')} variant='filled' onChange={(e) => setLocation(e.target.value)} />
                         <TextField fullWidth label={t('Website')}variant='filled' onChange={(e) => setWebsite(e.target.value)} />
                     </form>

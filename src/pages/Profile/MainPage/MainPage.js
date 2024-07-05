@@ -12,6 +12,7 @@ import { FaLocationDot } from "react-icons/fa6";
 import { IoLink } from "react-icons/io5";
 // import { Link } from '@mui/material';
 import { useTranslation } from 'react-i18next';
+import Info from '../UserInfo/Info';
 
 const MainProfile = ({ user }) => {
     const navigate = useNavigate();
@@ -140,7 +141,10 @@ const MainProfile = ({ user }) => {
                     {/*  */}
                 </div>
                 {/* <Link  to={'/home/profile/editprofile'} className='absolute right-4 mt-3 font-bold bg-blue-500 text-white px-3 py-2 rounded-full hover:bg-blue-600 duration-300 active:bg-blue-500'>Edit Profile</Link> */}
+                
                 <EditProfile user={user} loggedInUser={loggedInUser} />
+                <Info/>
+                
             </div>
             <div>
                 <h3 className='font-bold lg:text-2xl text-xl'>{Name}</h3>
