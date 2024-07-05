@@ -122,7 +122,13 @@ const LanguageSelector = () => {
             >
                 <Box sx={style} className='modal'>
                     <div className="flex items-center justify-between">
-                        <IconButton onClick={() => { setOpen(false); setIsOTPsent(false); setIsOTPverified(false); setloading(false) }}><IoIosCloseCircleOutline /></IconButton>
+                        <IconButton onClick={() => {
+                            setOpen(false);
+                            setIsOTPsent(false);
+                            setIsOTPverified(false);
+                            setloading(false)
+                        }}>
+                            <IoIosCloseCircleOutline /></IconButton>
                         <h1 className="text-3xl font-bold">Change Language</h1>
                     </div>
                     <div className="mt-10">
@@ -167,7 +173,14 @@ const LanguageSelector = () => {
                                         <p className="mb-5 font-semibold text-lg text-green-400">OTP verified Successfully</p>
                                         <p className="mb-5 font-semibold text-lg">select Your Language</p>
                                         {languageOptions()}
-                                        <button className="bg-blue-500 text-white w-full rounded-lg font-bold  py-3 mt-3 hover:bg-blue-600 active:bg-blue-500 duration-200" onClick={() => { setOpen(false); setIsOTPsent(false); setIsOTPverified(false); setloading(false) }}>Done</button>
+                                        <button className="bg-blue-500 text-white w-full rounded-lg font-bold  py-3 mt-3 hover:bg-blue-600 active:bg-blue-500 duration-200" onClick={() => {
+                                            setOpen(false);
+                                            setIsOTPsent(false);
+                                            setIsOTPverified(false);
+                                            setloading(false)
+                                        }}>
+                                            Done
+                                        </button>
                                     </>
                         }
                     </div>

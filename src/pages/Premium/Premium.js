@@ -22,11 +22,16 @@ const Premium = () => {
 
     const { t } = useTranslation();
 
+    const [basicLoading,setBasicLoading]=useState(false)
+    const [premiumLoading,setPremiumLoading]=useState(false)
+    const [premiumPlusLoading,setPremiumPlusLoading]=useState(false)
+
     
 
 
 
     const basic = async () => {
+        setBasicLoading(true)
         const response = await axios.post('http://localhost:8000/subscription', {
             amount: 21587,
         })
@@ -34,8 +39,10 @@ const Premium = () => {
             window.location.href = response.data.url
             console.log(response)
         }
+        setBasicLoading(false)
     }
     const basicYearly = async () => {
+        setBasicLoading(true)
         const response = await axios.post('http://localhost:8000/subscription', {
             amount: 250000,
         })
@@ -43,9 +50,11 @@ const Premium = () => {
             window.location.href = response.data.url
             console.log(response)
         }
+        setBasicLoading(false)
+        
     }
     const premium = async () => {
-
+        setPremiumLoading(true)
         const response = await axios.post('http://localhost:8000/subscription', {
             amount: 56666,
         })
@@ -53,9 +62,10 @@ const Premium = () => {
             window.location.href = response.data.url
             console.log(response)
         }
+        setPremiumLoading(false)
     }
     const premiumYearly = async () => {
-
+        setPremiumLoading(true)
         const response = await axios.post('http://localhost:8000/subscription', {
             amount: 650000,
         })
@@ -63,9 +73,10 @@ const Premium = () => {
             window.location.href = response.data.url
             console.log(response)
         }
+        setPremiumLoading(false)
     }
     const premiumPlus = async () => {
-
+        setPremiumPlusLoading(true)
         const response = await axios.post('http://localhost:8000/subscription', {
             amount: 113333,
         })
@@ -73,9 +84,10 @@ const Premium = () => {
             window.location.href = response.data.url
             console.log(response)
         }
+        setPremiumPlusLoading(false)
     }
     const premiumPlusYearly = async () => {
-
+        setPremiumPlusLoading(true)
         const response = await axios.post('http://localhost:8000/subscription', {
             amount: 1100000,
         })
@@ -83,6 +95,7 @@ const Premium = () => {
             window.location.href = response.data.url
             console.log(response)
         }
+        setPremiumPlusLoading(false)
     }
 
 
@@ -124,7 +137,7 @@ const Premium = () => {
 
                             }}
 
-                                className='w-full flex items-center justify-center bg-blue-600 font-bold text-white rounded-full px-3 py-2 hover:bg-blue-500 active:bg-blue-600 duration-300'>{t('Subscribe')}</button>
+                                className='w-full flex items-center justify-center bg-blue-600 font-bold text-white rounded-full px-3 py-2 hover:bg-blue-500 active:bg-blue-600 duration-300'>{basicLoading ==true ?'Loading...' : <>{t('Subscribe')}</>}</button>
                             <div>
                                 <p className='flex items-center gap-2'><span><IoCheckmark /></span><span>{t('basicP1')}</span></p>
                                 <p className='flex items-center gap-2'><span><IoCheckmark /></span><span>{t('basicP2')}</span></p>
@@ -142,7 +155,7 @@ const Premium = () => {
                             <button onClick={() => {
                                 premium()
 
-                            }} className='w-full flex items-center justify-center bg-blue-600 font-bold text-white rounded-full px-3 py-2 hover:bg-blue-500 active:bg-blue-600 duration-300'>{t('Subscribe')}</button>
+                            }} className='w-full flex items-center justify-center bg-blue-600 font-bold text-white rounded-full px-3 py-2 hover:bg-blue-500 active:bg-blue-600 duration-300'>{premiumLoading ==true ?'Loading...' : <>{t('Subscribe')}</>}</button>
                             <div>
                                 <p className='flex items-center gap-2 font-bold'>{t('premium_heading')}</p>
                                 <p className='flex items-center gap-2'><span><IoCheckmark /></span><span>{t('premiumP1')}</span></p>
@@ -162,12 +175,12 @@ const Premium = () => {
                             <button onClick={() => {
                                 premiumPlus()
 
-                            }} className='w-full flex items-center justify-center bg-blue-600 font-bold text-white rounded-full px-3 py-2 hover:bg-blue-500 active:bg-blue-600 duration-300 animate-pulse hover:animate-none'>{t('Subscribe')}</button>
+                            }} className='w-full flex items-center justify-center bg-blue-600 font-bold text-white rounded-full px-3 py-2 hover:bg-blue-500 active:bg-blue-600 duration-300 animate-pulse hover:animate-none'>{premiumPlusLoading ==true ?'Loading...' : <>{t('Subscribe')}</>}</button>
                             <div>
                                 <p className='flex items-center gap-2 font-bold'>{t('premium_plus_heading')}</p>
                                 <p className='flex items-center gap-2'><span><IoCheckmark /></span><span>{t('premium_plusP1')}</span></p>
-                                <p className='flex items-center gap-2'><span><IoCheckmark /></span><span>{t('premium_plusP1')}</span></p>
-                                <p className='flex items-center gap-2'><span><IoCheckmark /></span><span>{t('premium_plusP1')}</span></p>
+                                <p className='flex items-center gap-2'><span><IoCheckmark /></span><span>{t('premium_plusP2')}</span></p>
+                                <p className='flex items-center gap-2'><span><IoCheckmark /></span><span>{t('premium_plusP3')}</span></p>
 
                             </div>
                         </div>
@@ -198,7 +211,7 @@ const Premium = () => {
 
                             }}
 
-                                className='w-full flex items-center justify-center bg-blue-600 font-bold text-white rounded-full px-3 py-2 hover:bg-blue-500 active:bg-blue-600 duration-300'>{t('Subscribe')}</button>
+                                className='w-full flex items-center justify-center bg-blue-600 font-bold text-white rounded-full px-3 py-2 hover:bg-blue-500 active:bg-blue-600 duration-300'>{basicLoading ==true ?'Loading...' : <>{t('Subscribe')}</>}</button>
                             <div>
                                 <p className='flex items-center gap-2'><span><IoCheckmark /></span><span>{t('basicP1')}</span></p>
                                 <p className='flex items-center gap-2'><span><IoCheckmark /></span><span>{t('basicP2')}</span></p>
@@ -216,7 +229,7 @@ const Premium = () => {
                             <button onClick={() => {
                                 premiumYearly()
 
-                            }} className='w-full flex items-center justify-center bg-blue-600 font-bold text-white rounded-full px-3 py-2 hover:bg-blue-500 active:bg-blue-600 duration-300'>{t('Subscribe')}</button>
+                            }} className='w-full flex items-center justify-center bg-blue-600 font-bold text-white rounded-full px-3 py-2 hover:bg-blue-500 active:bg-blue-600 duration-300'>{premiumLoading ==true ?'Loading...' : <>{t('Subscribe')}</>}</button>
                             <div>
                                 <p className='flex items-center gap-2 font-bold'>{t('premium_heading')}</p>
                                 <p className='flex items-center gap-2'><span><IoCheckmark /></span><span>{t('premiumP1')}</span></p>
@@ -236,7 +249,7 @@ const Premium = () => {
                             <button onClick={() => {
                                 premiumPlusYearly()
 
-                            }} className='w-full flex items-center justify-center bg-blue-600 font-bold text-white rounded-full px-3 py-2 hover:bg-blue-500 active:bg-blue-600 duration-300 animate-pulse hover:animate-none'>{t('Subscribe')}</button>
+                            }} className='w-full flex items-center justify-center bg-blue-600 font-bold text-white rounded-full px-3 py-2 hover:bg-blue-500 active:bg-blue-600 duration-300 animate-pulse hover:animate-none'>{premiumPlusLoading ==true ?'Loading...' : <>{t('Subscribe')}</>}</button>
                             <div>
                                 <p className='flex items-center gap-2 font-bold'>{t('premium_plus_heading')}</p>
                                 <p className='flex items-center gap-2'><span><IoCheckmark /></span><span>{t('premium_plusP1')}</span></p>
