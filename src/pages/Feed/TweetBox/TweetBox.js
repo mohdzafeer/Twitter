@@ -188,7 +188,7 @@ const TweetBox = () => {
                 <input
                     onChange={(e) => setpost(e.target.value)}
                     className='m-2 px-3 py-2 bg-blue-100  rounded-full w-2/3 lg:font-semibold font-normal' placeholder={t('Enter your though here')} />
-                <button type="submit" className="lg:m-2 lg:px-10 px-2 lg:py-2 py-1 bg-blue-500 hover:bg-blue-600 active:bg-blue-700 duration-200 text-white cursor-pointer rounded-full lg:font-bold font-normal">{t('Tweet')}</button>
+                <button type="submit" className="lg:m-2 lg:px-10 px-2 lg:py-2 py-1 bg-blue-500 hover:bg-blue-600 active:bg-blue-700 duration-200 text-white cursor-pointer rounded-full lg:font-bold font-normal active:scale-95">{t('Tweet')}</button>
             </form>
         </div>
     )

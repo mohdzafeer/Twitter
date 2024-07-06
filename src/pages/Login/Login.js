@@ -7,6 +7,7 @@ import { useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth'
 import { Link,  useNavigate } from 'react-router-dom'
 import { signInWithPopup, } from 'firebase/auth'
 import { LoadingPage } from '../LoadingPage/LoadingPage'
+import { TextField } from '@mui/material'
 
 export const Login = () => {
     const [email, setEmail] = useState('')
@@ -80,22 +81,24 @@ export const Login = () => {
                     <h1 className='font-bold text-2xl mx-5 px-5'>Login in to Twitter</h1>
                     <form
                         onSubmit={ handleSubmit}
-                        className='flex flex-col items-center lg:items-start'
+                        className='flex flex-col items-center lg:items-start gap-4 pt-4'
                     >
-                        <input
-                            className=' border-2 flex items-center border-black lg:w-2/4 w-10/12 rounded-lg shadow-xl lg:m-5 m-2 h-12 px-3 py-1 font-semibold bg-blue-100'
+                        <TextField
+                            // className=' border-2 flex items-center border-black lg:w-2/4 w-10/12 rounded-lg shadow-xl lg:m-5 m-2 h-12 px-3 py-1 font-semibold bg-blue-100'
+                            className='w-1/2'
                             type='email'
-                            placeholder='Email'
+                            label='Email'
                             onChange={(e) => setEmail(e.target.value)}
                         />
-                        <input
-                            className=' border-2 flex items-center border-black lg:w-2/4 w-10/12 rounded-lg shadow-xl lg:m-5 m-2 h-12 px-3 py-1 font-semibold bg-blue-100'
+                        <TextField
+                            // className=' border-2 flex items-center border-black lg:w-2/4 w-10/12 rounded-lg shadow-xl lg:m-5 m-2 h-12 px-3 py-1 font-semibold bg-blue-100'
+                            className='w-1/2'
                             type='password'
-                            placeholder='Password'
+                            label='Password'
                             onChange={(e) => setPassword(e.target.value)}
                         />
                         <input
-                            className='cursor-pointer border-2 border-black hover:scale-105  lg:w-2/4 w-10/12 rounded-full shadow-xl lg:m-5 m-2 h-14 px-3 py-1 hover:bg-blue-300 duration-200 font-extrabold text-lg active:bg-blue-500'
+                            className='cursor-pointer border-2 border-black   lg:w-2/4 w-10/12 hover:rounded-full ease-in-out  shadow-xl lg:my-5 my-2 h-14 px-3 py-1 hover:bg-blue-300 duration-200 font-extrabold text-lg active:bg-blue-500'
                             type='submit' value='Log In'
                             
                         />
@@ -110,7 +113,7 @@ export const Login = () => {
                 </div>
                 <div className='flex flex-col items-center lg:items-start'>
                     <button
-                        className='flex items-center gap-3 border-2 hover:scale-105 duration-200 border-black shadow-xl rounded-full m-5 w-10/12 lg:w-2/4 px-4 py-2 active:bg-gray-300 justify-center'
+                        className='flex items-center gap-3 border-2  duration-200 border-black shadow-xl hover:rounded-full my-5 w-10/12 lg:w-2/4 px-4 py-2 active:bg-gray-300 justify-center'
                         onClick={SigninwithGoogle} >
 
                         <img src={Google} width={50} alt='GoogleImage' /><span className='text-xl font-bold '>Continue with Google</span>

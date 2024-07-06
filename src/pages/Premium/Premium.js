@@ -32,7 +32,7 @@ const Premium = () => {
 
     const basic = async () => {
         setBasicLoading(true)
-        const response = await axios.post('http://localhost:8000/subscription', {
+        const response = await axios.post('http://localhost:5000/subscription', {
             amount: 21587,
         })
         if (response && response.status === 200) {
@@ -43,7 +43,7 @@ const Premium = () => {
     }
     const basicYearly = async () => {
         setBasicLoading(true)
-        const response = await axios.post('http://localhost:8000/subscription', {
+        const response = await axios.post('http://localhost:5000/subscription', {
             amount: 250000,
         })
         if (response && response.status === 200) {
@@ -55,7 +55,7 @@ const Premium = () => {
     }
     const premium = async () => {
         setPremiumLoading(true)
-        const response = await axios.post('http://localhost:8000/subscription', {
+        const response = await axios.post('http://localhost:5000/subscription', {
             amount: 56666,
         })
         if (response && response.status === 200) {
@@ -66,7 +66,7 @@ const Premium = () => {
     }
     const premiumYearly = async () => {
         setPremiumLoading(true)
-        const response = await axios.post('http://localhost:8000/subscription', {
+        const response = await axios.post('http://localhost:5000/subscription', {
             amount: 650000,
         })
         if (response && response.status === 200) {
@@ -77,7 +77,7 @@ const Premium = () => {
     }
     const premiumPlus = async () => {
         setPremiumPlusLoading(true)
-        const response = await axios.post('http://localhost:8000/subscription', {
+        const response = await axios.post('http://localhost:5000/subscription', {
             amount: 113333,
         })
         if (response && response.status === 200) {
@@ -88,7 +88,7 @@ const Premium = () => {
     }
     const premiumPlusYearly = async () => {
         setPremiumPlusLoading(true)
-        const response = await axios.post('http://localhost:8000/subscription', {
+        const response = await axios.post('http://localhost:5000/subscription', {
             amount: 1100000,
         })
         if (response && response.status === 200) {
@@ -120,10 +120,10 @@ const Premium = () => {
                         <div className="flex p-1 rounded-full bg-gray-200 w-fit items-center justify-center">
                             <button onClick={()=>{
                                 setMonthly(true)
-                            }} className="bg-blue-500 text-white rounded-full m-1 px-4 py-3 font-bold text-lg w-32 flex items-center justify-center">{t('Monthly')}</button>
+                            }} className="bg-blue-500 text-white rounded-full m-1 px-4 py-3 font-bold text-lg w-32 flex items-center justify-center active:scale-90 duration-200">{t('Monthly')}</button>
                             <button onClick={()=>{
                                 setMonthly(false)
-                            }} className="bg-white rounded-full m-1 px-4 py-3 font-bold text-lg w-32 flex items-center justify-center">{t('Yearly')}</button>
+                            }} className="bg-white rounded-full m-1 px-4 py-3 font-bold text-lg w-32 flex items-center justify-center active:scale-90 duration-200">{t('Yearly')}</button>
                         </div>
                     </div>
                     <div action="/create-checkout-session" method="POST" className='flex items-center justify-center mt-20 lg:flex-row flex-col lg:gap-0 gap-4 md:flex-row  md:flex-wrap'>
@@ -196,8 +196,8 @@ const Premium = () => {
                     </div>
                     <div className="flex items-center w-full justify-center mt-10">
                         <div className="flex p-1 rounded-full bg-gray-200 w-fit items-center justify-center">
-                            <button onClick={()=>setMonthly(true)} className="bg-white rounded-full m-1 px-4 py-3 font-bold text-lg w-32 flex items-center justify-center">{t('Monthly')}</button>
-                            <button onClick={()=>setMonthly(false)} className="bg-blue-500 text-white rounded-full m-1 px-4 py-3 font-bold text-lg w-32 flex items-center justify-center">{t('Yearly')}</button>
+                            <button onClick={()=>setMonthly(true)} className="bg-white rounded-full m-1 px-4 py-3 font-bold text-lg w-32 flex items-center justify-center active:scale-90 duration-200">{t('Monthly')}</button>
+                            <button onClick={()=>setMonthly(false)} className="bg-blue-500 text-white rounded-full m-1 px-4 py-3 font-bold text-lg w-32 flex items-center justify-center active:scale-90 duration-200">{t('Yearly')}</button>
                         </div>
                     </div>
                     <div action="/create-checkout-session" method="POST" className='flex items-center justify-center mt-20 lg:flex-row flex-col lg:gap-0 gap-4 md:flex-row  md:flex-wrap'>

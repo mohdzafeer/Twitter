@@ -55,7 +55,7 @@ const LanguageSelector = () => {
     const handleSendOTP = async () => {
         try {
             setloading(true)
-            await axios.post('http://localhost:8000/send-otp', { email });
+            await axios.post('http://localhost:5000/send-otp', { email });
             setIsOTPsent(true);
         } catch (error) {
             console.error('Error sending OTP', error);
@@ -67,7 +67,7 @@ const LanguageSelector = () => {
         console.log('Verifying OTP with:', { email, otp });
 
         try {
-            const response = await axios.post('http://localhost:8000/verify-otp', { email, otp },
+            const response = await axios.post('http://localhost:5000/verify-otp', { email, otp },
                 {
                     headers: {
                         'Content-Type': 'application/json'
@@ -78,7 +78,11 @@ const LanguageSelector = () => {
                 setIsOTPverified(true);
                 // changeLanguage(); // Ensure this function is defined
             }
-            setMessage(response.data.message);
+            // setMessage(response.data.message);
+            else{
+                setIsOTPverified(false);
+                alert("Invalid OTP")
+            }
         } catch (error) {
             console.error('Error verifying OTP', error);
             if (error.response) {
@@ -158,8 +162,8 @@ const LanguageSelector = () => {
                                 // isOTPsent===true ? 
                                 isOTPverified === false ?
                                     <>
-                                        <p className="mb-5 font-semibold text-lg">OTP sent to Your Email</p>
-                                        <TextField type="number" fullWidth label='Enter OTP' variant='filled' onChange={(e) => setOtp(e.target.value)} />
+                                        <p className="mb-5 font-semibold text-lg text-green-500">OTP sent to Your Email</p>
+                                        <TextField type="text" fullWidth label='Enter OTP' variant='filled' onChange={(e) => setOtp(e.target.value)} />
                                         {
                                             loading === false
                                                 ?

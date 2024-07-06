@@ -42,7 +42,7 @@ const Info = () => {
 
     return (
         <div>
-            <button className='absolute right-36 bottom-auto shadow-xl bg-gray-50 hover:bg-gray-100  active:bg-gray-200 duration-300 px-4 py-2 mx-5 mt-5  font-bold text-black border  rounded-full' onClick={() => setOpen(true)}>User Info</button>
+            <button className='absolute right-36 bottom-auto shadow-xl bg-gray-50 hover:bg-gray-100 active:scale-90  active:bg-gray-200 duration-300 px-4 py-2 mx-5 mt-5  font-bold text-black border  rounded-full' onClick={() => setOpen(true)}>User Info</button>
             <Modal
                 open={open}
                 aria-labelledby="modal-modal-title"
