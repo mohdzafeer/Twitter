@@ -4,7 +4,6 @@ import { FaRupeeSign } from "react-icons/fa";
 import { IoCheckmark } from "react-icons/io5";
 import { Link } from 'react-router-dom';
 import './Premium.css'
-
 import axios from 'axios';
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
@@ -137,7 +136,7 @@ const Premium = () => {
 
                             }}
 
-                                className='w-full flex items-center justify-center bg-blue-600 font-bold text-white rounded-full px-3 py-2 hover:bg-blue-500 active:bg-blue-600 duration-300'>{basicLoading ==true ?'Loading...' : <>{t('Subscribe')}</>}</button>
+                                className='w-full flex items-center justify-center bg-blue-600 font-bold text-white rounded-full px-3 py-2 hover:bg-blue-500 active:bg-blue-600 duration-300'>{basicLoading ===true ?'Loading...' : <>{t('Subscribe')}</>}</button>
                             <div>
                                 <p className='flex items-center gap-2'><span><IoCheckmark /></span><span>{t('basicP1')}</span></p>
                                 <p className='flex items-center gap-2'><span><IoCheckmark /></span><span>{t('basicP2')}</span></p>
@@ -155,7 +154,7 @@ const Premium = () => {
                             <button onClick={() => {
                                 premium()
 
-                            }} className='w-full flex items-center justify-center bg-blue-600 font-bold text-white rounded-full px-3 py-2 hover:bg-blue-500 active:bg-blue-600 duration-300'>{premiumLoading ==true ?'Loading...' : <>{t('Subscribe')}</>}</button>
+                            }} className='w-full flex items-center justify-center bg-blue-600 font-bold text-white rounded-full px-3 py-2 hover:bg-blue-500 active:bg-blue-600 duration-300'>{premiumLoading ===true ?'Loading...' : <>{t('Subscribe')}</>}</button>
                             <div>
                                 <p className='flex items-center gap-2 font-bold'>{t('premium_heading')}</p>
                                 <p className='flex items-center gap-2'><span><IoCheckmark /></span><span>{t('premiumP1')}</span></p>
@@ -175,7 +174,7 @@ const Premium = () => {
                             <button onClick={() => {
                                 premiumPlus()
 
-                            }} className='w-full flex items-center justify-center bg-blue-600 font-bold text-white rounded-full px-3 py-2 hover:bg-blue-500 active:bg-blue-600 duration-300 animate-pulse hover:animate-none'>{premiumPlusLoading ==true ?'Loading...' : <>{t('Subscribe')}</>}</button>
+                            }} className='w-full flex items-center justify-center bg-blue-600 font-bold text-white rounded-full px-3 py-2 hover:bg-blue-500 active:bg-blue-600 duration-300 animate-pulse hover:animate-none'>{premiumPlusLoading ===true ?'Loading...' : <>{t('Subscribe')}</>}</button>
                             <div>
                                 <p className='flex items-center gap-2 font-bold'>{t('premium_plus_heading')}</p>
                                 <p className='flex items-center gap-2'><span><IoCheckmark /></span><span>{t('premium_plusP1')}</span></p>
@@ -211,7 +210,7 @@ const Premium = () => {
 
                             }}
 
-                                className='w-full flex items-center justify-center bg-blue-600 font-bold text-white rounded-full px-3 py-2 hover:bg-blue-500 active:bg-blue-600 duration-300'>{basicLoading ==true ?'Loading...' : <>{t('Subscribe')}</>}</button>
+                                className='w-full flex items-center justify-center bg-blue-600 font-bold text-white rounded-full px-3 py-2 hover:bg-blue-500 active:bg-blue-600 duration-300'>{basicLoading ===true ?'Loading...' : <>{t('Subscribe')}</>}</button>
                             <div>
                                 <p className='flex items-center gap-2'><span><IoCheckmark /></span><span>{t('basicP1')}</span></p>
                                 <p className='flex items-center gap-2'><span><IoCheckmark /></span><span>{t('basicP2')}</span></p>
@@ -229,7 +228,7 @@ const Premium = () => {
                             <button onClick={() => {
                                 premiumYearly()
 
-                            }} className='w-full flex items-center justify-center bg-blue-600 font-bold text-white rounded-full px-3 py-2 hover:bg-blue-500 active:bg-blue-600 duration-300'>{premiumLoading ==true ?'Loading...' : <>{t('Subscribe')}</>}</button>
+                            }} className='w-full flex items-center justify-center bg-blue-600 font-bold text-white rounded-full px-3 py-2 hover:bg-blue-500 active:bg-blue-600 duration-300'>{premiumLoading ===true ?'Loading...' : <>{t('Subscribe')}</>}</button>
                             <div>
                                 <p className='flex items-center gap-2 font-bold'>{t('premium_heading')}</p>
                                 <p className='flex items-center gap-2'><span><IoCheckmark /></span><span>{t('premiumP1')}</span></p>
@@ -249,7 +248,7 @@ const Premium = () => {
                             <button onClick={() => {
                                 premiumPlusYearly()
 
-                            }} className='w-full flex items-center justify-center bg-blue-600 font-bold text-white rounded-full px-3 py-2 hover:bg-blue-500 active:bg-blue-600 duration-300 animate-pulse hover:animate-none'>{premiumPlusLoading ==true ?'Loading...' : <>{t('Subscribe')}</>}</button>
+                            }} className='w-full flex items-center justify-center bg-blue-600 font-bold text-white rounded-full px-3 py-2 hover:bg-blue-500 active:bg-blue-600 duration-300 animate-pulse hover:animate-none'>{premiumPlusLoading ===true ?'Loading...' : <>{t('Subscribe')}</>}</button>
                             <div>
                                 <p className='flex items-center gap-2 font-bold'>{t('premium_plus_heading')}</p>
                                 <p className='flex items-center gap-2'><span><IoCheckmark /></span><span>{t('premium_plusP1')}</span></p>
