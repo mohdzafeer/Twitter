@@ -10,19 +10,12 @@ import Post from '../../Feed/post/Post'
 import { BsCake2Fill } from "react-icons/bs";
 import { FaLocationDot } from "react-icons/fa6";
 import { IoLink } from "react-icons/io5";
-// import { Link } from '@mui/material';
 import { useTranslation } from 'react-i18next';
 import Info from '../UserInfo/Info';
 
 const MainProfile = ({ user }) => {
     const navigate = useNavigate();
     const { t } = useTranslation();
-
-    // const changeLanguage = (lng) => {
-    //     i18n.changeLanguage(lng);
-    //   };
-
-    // const username=auth.currentUser?.email?.split('@')[0]
     const googleUserProfilePic = auth?.currentUser?.photoURL
 
     const [loggedInUser] = useLoggedInUser()
@@ -48,6 +41,7 @@ const MainProfile = ({ user }) => {
         axios.post("https://api.imgbb.com/1/upload?key=9585d64d1aca3440fa5edba72a9abbdf", formData)
             .then(res => {
                 const url = res.data.data.display_url
+                console.log(url)
                 const userCoverImage = {
                     email: user?.email,
                     coverImage: url
@@ -55,7 +49,7 @@ const MainProfile = ({ user }) => {
                 setIsLoading(false)
 
                 if (url) {
-                    axios.patch(`http://localhost:5000/userUpdates/${user?.email}`, userCoverImage)
+                    axios.patch(`https://twitter-bcakend.vercel.app/userUpdates/${user?.email}`, userCoverImage)
                 }
             })
     }
@@ -71,6 +65,7 @@ const MainProfile = ({ user }) => {
         axios.post("https://api.imgbb.com/1/upload?key=9585d64d1aca3440fa5edba72a9abbdf", formData)
             .then(res => {
                 const url = res.data.data.display_url
+                console.log(url)
                 const userProfileImage = {
                     email: user?.email,
                     profileImage: url
@@ -78,7 +73,7 @@ const MainProfile = ({ user }) => {
                 setIsLoading(false)
                 // formData.set()
                 if (url) {
-                    axios.patch(`http://localhost:5000/userUpdates/${user?.email}`, userProfileImage)
+                    axios.patch(`https://twitter-bcakend.vercel.app/userUpdates/${user?.email}`, userProfileImage)
 
                 }
             })
@@ -90,7 +85,7 @@ const MainProfile = ({ user }) => {
     const [posts, setPosts] = useState([])
 
     useEffect(() => {
-        fetch(`http://localhost:5000/userPost?email=${user?.email}`)
+        fetch(`https://twitter-bcakend.vercel.app/userPost?email=${user?.email}`)
             .then(res => res.json())
             .then(data => {
                 setPosts(data)

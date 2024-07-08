@@ -31,7 +31,7 @@ const Premium = () => {
 
     const basic = async () => {
         setBasicLoading(true)
-        const response = await axios.post('http://localhost:5000/subscription', {
+        const response = await axios.post('https://twitter-bcakend.vercel.app/subscription', {
             amount: 21587,
         })
         if (response && response.status === 200) {
@@ -42,7 +42,7 @@ const Premium = () => {
     }
     const basicYearly = async () => {
         setBasicLoading(true)
-        const response = await axios.post('http://localhost:5000/subscription', {
+        const response = await axios.post('https://twitter-bcakend.vercel.app/subscription', {
             amount: 250000,
         })
         if (response && response.status === 200) {
@@ -54,7 +54,7 @@ const Premium = () => {
     }
     const premium = async () => {
         setPremiumLoading(true)
-        const response = await axios.post('http://localhost:5000/subscription', {
+        const response = await axios.post('https://twitter-bcakend.vercel.app/subscription', {
             amount: 56666,
         })
         if (response && response.status === 200) {
@@ -65,7 +65,7 @@ const Premium = () => {
     }
     const premiumYearly = async () => {
         setPremiumLoading(true)
-        const response = await axios.post('http://localhost:5000/subscription', {
+        const response = await axios.post('https://twitter-bcakend.vercel.app/subscription', {
             amount: 650000,
         })
         if (response && response.status === 200) {
@@ -76,7 +76,7 @@ const Premium = () => {
     }
     const premiumPlus = async () => {
         setPremiumPlusLoading(true)
-        const response = await axios.post('http://localhost:5000/subscription', {
+        const response = await axios.post('https://twitter-bcakend.vercel.app/subscription', {
             amount: 113333,
         })
         if (response && response.status === 200) {
@@ -87,7 +87,7 @@ const Premium = () => {
     }
     const premiumPlusYearly = async () => {
         setPremiumPlusLoading(true)
-        const response = await axios.post('http://localhost:5000/subscription', {
+        const response = await axios.post('https://twitter-bcakend.vercel.app/subscription', {
             amount: 1100000,
         })
         if (response && response.status === 200) {

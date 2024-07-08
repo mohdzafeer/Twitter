@@ -65,7 +65,28 @@
   "Location":"Location",
   "Website":"Website",
   "Birth Date":"Birth Date",
-  "Switch to Profession Account":"Switch to Profession Account"
+  "Switch to Profession Account":"Switch to Profession Account",
     
+
+
+"Change Language":"Change Language",
+"OTP will be sent to thiis Email":"OTP will be sent to this Email : ",
+"Enter your Email Address":"Enter your Email Address",
+"OTP sent to your Email":"OTP sent to your Email",
+"Send OTP":"Send OTP",
+"Enter OTP":"Enter OTP",
+"Submit":"Submit",
+"OTP verified Successfully":"OTP verified Successfully",
+"Select your Language":"Select your Language",
+"Done":"Done",
+"No new Notifications":"No new Notifications",
+"Premium_Subheading":"Enjoy an enhanced experience, exclusive creator tools, top-tier verification and security.",
+"User Info":"User Info",
+"Edit Date of birth":"Edit Date of Birth",
+"DOB_subheading":"This can only be changed few times make sure you Enter it correctly",
+"OK":"OK",
+"Posted on":"Posted on",
+"at":"at"
+
   }
   

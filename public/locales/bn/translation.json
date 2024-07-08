@@ -65,5 +65,28 @@
   "Location": "অবস্থান",
   "Website": "ওয়েবসাইট",
   "Birth Date": "জন্ম তারিখ",
-  "Switch to Profession Account": "পেশাদার অ্যাকাউন্টে স্যুইচ করুন"
+  "Switch to Profession Account": "পেশাদার অ্যাকাউন্টে স্যুইচ করুন",
+
+
+
+
+
+  "Change Language":"ভাষা পরিবর্তন করুন",
+"OTP will be sent to thiis Email":"ওটিপি এই ইমেলে পাঠানো হবে:",
+"Enter your Email Address":"তোমার ই - মেইল ​​ঠিকানা লেখো",
+"OTP sent to your Email":"আপনার ইমেলে OTP পাঠানো হয়েছে",
+"Send OTP":"OTP পাঠান",
+"Enter OTP":"OTP লিখুন",
+"Submit":"জমা দিন",
+"OTP verified Successfully":"OTP সফলভাবে যাচাই করা হয়েছে",
+"Select your Language":"আপনার ভাষা নির্বাচন করুন",
+"Done":"সম্পন্ন",
+"No new Notifications":"কোন নতুন বিজ্ঞপ্তি নেই",
+"Premium_Subheading":"একটি বর্ধিত অভিজ্ঞতা, একচেটিয়া নির্মাতা সরঞ্জাম, শীর্ষ-স্তরের যাচাইকরণ এবং নিরাপত্তা উপভোগ করুন।",
+"User Info":"ব্যবহারকারীর তথ্য",
+"Edit Date of birth":"জন্ম তারিখ সম্পাদনা করুন",
+"DOB_subheading":"এটি শুধুমাত্র কয়েকবার পরিবর্তন করা যেতে পারে তা নিশ্চিত করুন যে আপনি এটি সঠিকভাবে প্রবেশ করেছেন৷",
+"OK":"ঠিক আছে",
+"Posted on":"পোস্ট করা হয়েছে",
+"at":"এ"
 }

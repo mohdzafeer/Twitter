@@ -19,6 +19,7 @@ import useLoggedInUser from '../../hooks/useLoggedInUser';
 import { useTranslation } from 'react-i18next';
 
 
+
 export const Sidebar = () => {
     const navigate = useNavigate()
     // const user = useAuthState(auth)
@@ -69,7 +70,9 @@ export const Sidebar = () => {
             <option className='text-white' selected value='English'>English</option>
             <option className='text-white' value='Hindi'>Hindi</option>
             </Select> */}
-            <Link to='/home/feed' className='lg:w-full w-2/3 flex items-center justify-center lg:mx-5 mx-2 my-2 text-2xl font-bold bg-blue-500 h-14 rounded-full text-white hover:bg-blue-600 active:bg-blue-700 duration-75 active:scale-95' >{t('Tweet')}</Link>
+            <Link
+                to={'/home/feed'}
+                className='lg:w-full w-2/3 flex items-center justify-center lg:mx-5 mx-2 my-2 text-2xl font-bold bg-blue-500 h-14 rounded-full text-white hover:bg-blue-600 active:bg-blue-700 duration-75 active:scale-95' >{t('Tweet')}</Link>
 
             <div className='flex gap-2 mt-28 lg:mt-60 rounded-full bg-gray-100 shadow-lg hover:bg-gray-200 duration-150 h-24 max-h-32 cursor-pointer active:bg-gray-300 px-3 py-2'>
                 <div className='w-44  border-white border-4 rounded-full overflow-hidden flex justify-center items-center bg-white shadow-xl'>

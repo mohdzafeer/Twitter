@@ -8,7 +8,7 @@ export const Feed=()=>{
     const [posts,setposts]=useState([])
 
     useEffect(()=>{
-        fetch('http://localhost:5000/post')
+        fetch('https://twitter-bcakend.vercel.app/post')
         .then(res=>res.json())
         .then(data=>{
             setposts(data)

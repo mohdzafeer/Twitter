@@ -53,9 +53,11 @@ const LanguageSelector = () => {
 
 
     const handleSendOTP = async () => {
+        // e.preventDefault();
+        // e.target.reset()
         try {
             setloading(true)
-            await axios.post('http://localhost:5000/send-otp', { email });
+            await axios.post('https://twitter-bcakend.vercel.app/send-otp', { email });
             setIsOTPsent(true);
         } catch (error) {
             console.error('Error sending OTP', error);
@@ -64,32 +66,40 @@ const LanguageSelector = () => {
     };
 
     const verifyOTP = async () => {
+        // e.preventDefault()
+        // e.target.reset()
         console.log('Verifying OTP with:', { email, otp });
 
         try {
-            const response = await axios.post('http://localhost:5000/verify-otp', { email, otp },
+            setloading(true)
+            const response = await axios.post('https://twitter-bcakend.vercel.app/verify-otp', { email, otp },
                 {
                     headers: {
                         'Content-Type': 'application/json'
                     }
-                }
+                },
+                setloading(false)
             );
             if (response.data.message === 'OTP verified') {
+                setloading(false)
                 setIsOTPverified(true);
                 // changeLanguage(); // Ensure this function is defined
             }
             // setMessage(response.data.message);
-            else{
+            else {
                 setIsOTPverified(false);
                 alert("Invalid OTP")
+                setloading(false)
             }
         } catch (error) {
             console.error('Error verifying OTP', error);
             if (error.response) {
                 console.error('Response data:', error.response.data);
                 setMessage(error.response.data.error);
+                alert(message)
             } else {
                 setMessage('An error occurred');
+                alert(message)
             }
         }
     };
@@ -118,7 +128,7 @@ const LanguageSelector = () => {
 
     return (
         <div>
-            <button className=' shadow-xl bg-blue-500 hover:bg-blue-600  active:bg-blue-500 duration-300 px-4 py-2  my-5  font-bold text-white border  rounded-full' onClick={() => setOpen(true)}>Change Language</button>
+            <button className=' shadow-xl bg-blue-500 hover:bg-blue-600  active:bg-blue-500 duration-300 px-4 py-2  my-5  font-bold text-white border  rounded-full' onClick={() => setOpen(true)}>{t('Change Language')}</button>
             <Modal
                 open={open}
                 aria-labelledby="modal-modal-title"
@@ -133,7 +143,7 @@ const LanguageSelector = () => {
                             setloading(false)
                         }}>
                             <IoIosCloseCircleOutline /></IconButton>
-                        <h1 className="text-3xl font-bold">Change Language</h1>
+                        <h1 className="text-3xl font-bold">{t('Change Language')}</h1>
                     </div>
                     <div className="mt-10">
                         {
@@ -141,13 +151,13 @@ const LanguageSelector = () => {
                             isOTPsent === false
                                 ?
                                 <>
-                                    <p className="mb-5 font-semibold text-lg">OTP will be sent to this Email</p>
-                                    <TextField type="email" fullWidth label='Enter Your Email Address' variant='filled' onChange={(e) => setEmail(e.target.value)} />
+                                    <p className="mb-5 font-semibold text-lg">{t('OTP will be sent to thiis Email')}</p>
+                                    <TextField type="email" fullWidth label={t('Enter Your Email Address')} variant='filled' onChange={(e) => setEmail(e.target.value)} />
                                     {loading === false
                                         ?
                                         <>
                                             <button className="bg-blue-500 text-white w-full rounded-lg font-bold  py-3 mt-3 hover:bg-blue-600 active:bg-blue-500 duration-200" onClick={() => { handleSendOTP() }}>
-                                                Send OTP
+                                                {t('Send OTP')}
                                             </button>
                                         </>
                                         :
@@ -162,20 +172,21 @@ const LanguageSelector = () => {
                                 // isOTPsent===true ? 
                                 isOTPverified === false ?
                                     <>
-                                        <p className="mb-5 font-semibold text-lg text-green-500">OTP sent to Your Email</p>
-                                        <TextField type="text" fullWidth label='Enter OTP' variant='filled' onChange={(e) => setOtp(e.target.value)} />
+                                        <p className="mb-5 font-semibold text-lg text-green-500">{t('OTP sent to your Email')}</p>
+                                        <TextField type="text" fullWidth label={t('Enter OTP')} variant='filled' onChange={(e) => setOtp(e.target.value)} />
                                         {
-                                            loading === false
+                                            loading === true
                                                 ?
-                                                <button className="bg-blue-500 text-white w-full rounded-lg font-bold  py-3 mt-3 hover:bg-blue-600 active:bg-blue-500 duration-200" onClick={() => { verifyOTP() }}>Submit</button>
-                                                :
                                                 <button className="bg-gray-600 text-white w-full rounded-lg font-bold  py-3 mt-3 cursor-wait  duration-200" >Submiting...</button>
+                                                :
+
+                                                <button className="bg-blue-500 text-white w-full rounded-lg font-bold  py-3 mt-3 hover:bg-blue-600 active:bg-blue-500 duration-200" onClick={() => { verifyOTP() }}>{t('Submit')}</button>
                                         }
                                     </>
                                     :
                                     <>
-                                        <p className="mb-5 font-semibold text-lg text-green-400">OTP verified Successfully</p>
-                                        <p className="mb-5 font-semibold text-lg">select Your Language</p>
+                                        <p className="mb-5 font-semibold text-lg text-green-400">{t('OTP verified Successfully')}</p>
+                                        <p className="mb-5 font-semibold text-lg">{t('Select your Language')}</p>
                                         {languageOptions()}
                                         <button className="bg-blue-500 text-white w-full rounded-lg font-bold  py-3 mt-3 hover:bg-blue-600 active:bg-blue-500 duration-200" onClick={() => {
                                             setOpen(false);
@@ -183,7 +194,7 @@ const LanguageSelector = () => {
                                             setIsOTPverified(false);
                                             setloading(false)
                                         }}>
-                                            Done
+                                            {t('Done')}
                                         </button>
                                     </>
                         }

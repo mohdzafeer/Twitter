@@ -3,6 +3,7 @@ import { useEffect, useState } from "react"
 import { IoIosCloseCircleOutline } from "react-icons/io"
 import { getUserInfo } from "./getUserinfo"
 import { getUserIp } from "./getUserIP"
+import { useTranslation } from "react-i18next"
 
 // import react from 'react'
 
@@ -22,6 +23,8 @@ const style = {
 }
 const Info = () => {
 
+    const { t } = useTranslation();
+
     const [open, setOpen] = useState(false)
 
 
@@ -40,9 +43,10 @@ const Info = () => {
     }, []);
 
 
+
     return (
         <div>
-            <button className='absolute right-36 bottom-auto shadow-xl bg-gray-50 hover:bg-gray-100 active:scale-90  active:bg-gray-200 duration-300 px-4 py-2 mx-5 mt-5  font-bold text-black border  rounded-full' onClick={() => setOpen(true)}>User Info</button>
+            <button className='absolute right-36 bottom-auto shadow-xl bg-gray-50 hover:bg-gray-100 active:scale-90  active:bg-gray-200 duration-300 px-4 py-2 mx-5 mt-5  font-bold text-black border  rounded-full' onClick={() => setOpen(true)}>{t('User Info')}</button>
             <Modal
                 open={open}
                 aria-labelledby="modal-modal-title"

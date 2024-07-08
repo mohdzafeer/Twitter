@@ -65,5 +65,28 @@
   "Location": "இருப்பிடம்",
   "Website": "வலைத்தளம்",
   "Birth Date": "பிறந்த தேதி",
-  "Switch to Profession Account": "தொழில்நுட்ப கணக்குக்கு மாற்றவும்"
+  "Switch to Profession Account": "தொழில்நுட்ப கணக்குக்கு மாற்றவும்",
+
+
+
+
+
+  "Change Language": "மொழியை மாற்று",
+  "OTP will be sent to thiis Email": "OTP இந்த மின்னஞ்சலுக்கு அனுப்பப்படும்: ",
+  "Enter your Email Address": "உங்கள் மின்னஞ்சல் முகவரியை உள்ளிடவும்",
+  "OTP sent to your Email": "உங்கள் மின்னஞ்சலுக்கு OTP அனுப்பப்பட்டது",
+  "Send OTP": "OTP அனுப்பவும்",
+  "Enter OTP": "OTP-ஐ உள்ளிடவும்",
+  "Submit": "சமர்ப்பிக்கவும்",
+  "OTP verified Successfully": "OTP வெற்றிகரமாக சரிபார்க்கப்பட்டது",
+  "Select your Language": "உங்கள் மொழியைத் தேர்வுசெய்க",
+  "Done": "முடிந்தது",
+  "No new Notifications": "புதிய அறிவிப்புகள் எதுவும் இல்லை",
+  "Premium_Subheading": "மேம்பட்ட அனுபவம், சிறப்பு உருவாக்கி கருவிகள், உயர்தர சரிபார்ப்பு மற்றும் பாதுகாப்பை அனுபவிக்கவும்.",
+  "User Info": "பயனர் தகவல்",
+  "Edit Date of birth": "பிறந்த தேதியைத் திருத்து",
+  "DOB_subheading": "இதை சில முறை மட்டுமே மாற்ற முடியும், சரியாக உள்ளிடவும்",
+  "OK": "சரி",
+  "Posted on": "பதிவுசெய்யப்பட்டது",
+  "at": "அன்று"
 }

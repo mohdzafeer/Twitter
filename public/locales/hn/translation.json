@@ -65,5 +65,27 @@
   "Location": "स्थान",
   "Website": "वेबसाइट",
   "Birth Date": "जन्म तिथि",
-  "Switch to Profession Account": "व्यावसायिक खाता पर स्विच करें"
+  "Switch to Profession Account": "व्यावसायिक खाता पर स्विच करें",
+
+
+
+
+ "Change Language": "भाषा बदलें",
+  "OTP will be sent to thiis Email": "इस ईमेल पर ओटीपी भेजा जाएगा : ",
+  "Enter your Email Address": "अपना ईमेल पता दर्ज करें",
+  "OTP sent to your Email": "आपके ईमेल पर ओटीपी भेजा गया",
+  "Send OTP": "ओटीपी भेजें",
+  "Enter OTP": "ओटीपी दर्ज करें",
+  "Submit": "सबमिट करें",
+  "OTP verified Successfully": "ओटीपी सफलतापूर्वक सत्यापित",
+  "Select your Language": "अपनी भाषा चुनें",
+  "Done": "हो गया",
+  "No new Notifications": "कोई नई सूचनाएं नहीं",
+  "Premium_Subheading": "बेहतर अनुभव, अनन्य निर्माता उपकरण, शीर्ष स्तरीय सत्यापन और सुरक्षा का आनंद लें।",
+  "User Info": "उपयोगकर्ता जानकारी",
+  "Edit Date of birth": "जन्म तिथि संपादित करें",
+  "DOB_subheading": "इसे केवल कुछ बार बदला जा सकता है, सुनिश्चित करें कि आपने इसे सही दर्ज किया है",
+  "OK": "ठीक है",
+  "Posted on": "प्रकाशित किया गया",
+  "at": "पर"
 }

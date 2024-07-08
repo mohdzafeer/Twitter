@@ -24,6 +24,9 @@ const style = {
 }
 
 function EditChild({ DOB, setDOB }) {
+
+    const { t } = useTranslation();
+
     const [open, setOpen] = useState(false)
     // const handleopen = () => {
     //     setOpen(true)
@@ -47,13 +50,13 @@ function EditChild({ DOB, setDOB }) {
             >
                 <Box sx={{ ...style, width: 300, height: 300 }}>
                     <div>
-                        <h2 className='font-bold text-xl mb-5'>Edit Date of birth</h2>
-                        <p className='mb-5'>This can only be changed few times make sure you Enter it correctly</p>
+                        <h2 className='font-bold text-xl mb-5'>{t('Edit Date of birth')}</h2>
+                        <p className='mb-5'>{t('DOB_subheading')}</p>
                         <input type='date'
                             onChange={(e) => setDOB(e.target.value)}
                         />
                         <button className='ml-5 bg-gray-500 px-2 py-1 rounded-lg hover:bg-gray-600 active:bg-gray-500 font-bold duration-200 text-white' onClick={() => setOpen(false)}>
-                            OK
+                            {('OK')}
                         </button>
                     </div>
 
@@ -97,7 +100,7 @@ export default function EditProfile({ user, loggedInUser }) {
             }
     
             if (editedInfo) {
-                await axios.patch(`http://localhost:5000/userUpdates/${user?.email}`, editedInfo)
+                await axios.patch(`https://twitter-bcakend.vercel.app/userUpdates/${user?.email}`, editedInfo)
                 setOpen(false)
             }
         }
@@ -121,7 +124,7 @@ export default function EditProfile({ user, loggedInUser }) {
                     <div>
                         <IconButton onClick={() => setOpen(false)}><IoIosCloseCircleOutline /></IconButton>
                         <div className='flex items-center justify-between'>
-                            <h2 className='lg:text-2xl lg:font-bold font-semibold'>Edit profile</h2>
+                            <h2 className='lg:text-2xl lg:font-bold font-semibold'>{t('Edit Profile')}</h2>
                             <button className='lg:px-4 px-2 lg:py-2 py-1 bg-blue-500 hover:bg-blue-600 active:bg-blue-500 font-bold m-2 rounded-full text-white duration-300' onClick={handleSave}>{t('Save')}</button>
                         </div>
                     </div>

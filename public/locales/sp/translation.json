@@ -65,5 +65,28 @@
   "Location": "Ubicación",
   "Website": "Sitio web",
   "Birth Date": "Fecha de nacimiento",
-  "Switch to Profession Account": "Cambiar a cuenta profesional"
+  "Switch to Profession Account": "Cambiar a cuenta profesional",
+
+
+
+
+
+  "Change Language": "Cambiar idioma",
+  "OTP will be sent to thiis Email": "El OTP será enviado a este correo electrónico: ",
+  "Enter your Email Address": "Ingrese su dirección de correo electrónico",
+  "OTP sent to your Email": "OTP enviado a su correo electrónico",
+  "Send OTP": "Enviar OTP",
+  "Enter OTP": "Ingrese OTP",
+  "Submit": "Enviar",
+  "OTP verified Successfully": "OTP verificado con éxito",
+  "Select your Language": "Seleccione su idioma",
+  "Done": "Hecho",
+  "No new Notifications": "No hay nuevas notificaciones",
+  "Premium_Subheading": "Disfruta de una experiencia mejorada, herramientas exclusivas para creadores, verificación y seguridad de primer nivel.",
+  "User Info": "Información del usuario",
+  "Edit Date of birth": "Editar fecha de nacimiento",
+  "DOB_subheading": "Esto solo se puede cambiar unas pocas veces, asegúrese de ingresarlo correctamente",
+  "OK": "OK",
+  "Posted on": "Publicado en",
+  "at": "a las"
 }
