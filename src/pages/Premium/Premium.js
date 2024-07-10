@@ -113,8 +113,8 @@ const Premium = () => {
                     <div><Link to={'/home/feed'}><IoCloseSharp className='m-5 font-bold text-2xl  rounded-full ' /></Link></div>
                     <div className='w-screen flex flex-col gap-8 justify-center items-center mt-10'>
                         <h1 className='lg:text-6xl md:text-4xl sm:text-3xl text-2xl font-bold'>{t('Upgrade to Premium')}</h1>
-                        <h2 className='lg:hidden md:text-lg sm:text-sm text-sm font-semibold'>Enjoy an enhanced experience, exclusive creator tools,<br /> top-tier verification and security.</h2>
-                        <h2 className='lg:text-xl md:text-lg sm:text-sm text-sm font-semibold'>Enjoy an enhanced experience, exclusive creator tools, top-tier verification and security.</h2>
+                        {/* <h2 className='lg:hidden md:text-lg sm:text-sm text-sm font-semibold'>Enjoy an enhanced experience, exclusive creator tools,<br /> top-tier verification and security.</h2> */}
+                        <h2 className='lg:text-xl md:text-lg sm:text-sm text-sm font-semibold'>{t('Enjoy an enhanced experience, exclusive creator tools, top-tier verification and security.')}</h2>
                     </div>
                     <div className="flex items-center w-full justify-center mt-10">
                         <div className="flex p-1 rounded-full bg-gray-200 w-fit items-center justify-center">
@@ -191,8 +191,8 @@ const Premium = () => {
                     <div><Link to={'/home/feed'}><IoCloseSharp className='m-5 font-bold text-2xl  rounded-full ' /></Link></div>
                     <div className='w-screen flex flex-col gap-8 justify-center items-center mt-10'>
                         <h1 className='lg:text-6xl md:text-4xl sm:text-3xl text-2xl font-bold'>{t('Upgrade to Premium')}</h1>
-                        <h2 className='lg:hidden md:text-lg sm:text-sm text-sm font-semibold'>Enjoy an enhanced experience, exclusive creator tools,<br /> top-tier verification and security.</h2>
-                        <h2 className='lg:text-xl md:text-lg sm:text-sm text-sm font-semibold'>Enjoy an enhanced experience, exclusive creator tools, top-tier verification and security.</h2>
+                        {/* <h2 className='lg:hidden md:text-lg sm:text-sm text-sm font-semibold'>Enjoy an enhanced experience, exclusive creator tools,<br /> top-tier verification and security.</h2> */}
+                        <h2 className='lg:text-xl md:text-lg sm:text-sm text-sm font-semibold'>{t('Enjoy an enhanced experience, exclusive creator tools, top-tier verification and security.')}</h2>
                     </div>
                     <div className="flex items-center w-full justify-center mt-10">
                         <div className="flex p-1 rounded-full bg-gray-200 w-fit items-center justify-center">
