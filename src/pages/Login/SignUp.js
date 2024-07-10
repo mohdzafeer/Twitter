@@ -97,6 +97,7 @@ export const SignUp = () => {
             setIsOTPsent(true);
         } catch (error) {
             console.error('Error sending OTP', error);
+            alert(message)
         }
         
     }
@@ -145,7 +146,7 @@ export const SignUp = () => {
                     <h1 className='font-bold text-2xl mx-5 px-5'>Sign Up to Twitter</h1>
                     <form
                         onSubmit={handleSubmit}
-                        className='flex flex-col items-center lg:items-start pt-5 gap-4'
+                        className='flex flex-col items-center lg:items-start pt-5 lg:px-0 px-10 gap-4'
                     >
                         <div className='flex items-center gap-4 justify-start w-full'>
                             <TextField

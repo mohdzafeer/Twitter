@@ -38,6 +38,8 @@ export const Login = () => {
     }
 
     const handleSubmit = (e) => {
+        if(!email || !password)
+            alert('Please enter your email and password')
         e.preventDefault()
         console.log(email, password)
         signInWithEmailAndPassword(email, password)

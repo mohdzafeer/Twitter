@@ -3,7 +3,7 @@ import { FaHome } from "react-icons/fa";
 import { GoHash } from "react-icons/go";
 import { FaRegBell } from "react-icons/fa";
 import { SlEnvolope } from "react-icons/sl";
-import { FaRegBookmark } from "react-icons/fa";
+// import { FaRegBookmark } from "react-icons/fa";
 
 import { FaRegUser } from "react-icons/fa6";
 import { CiCircleMore } from "react-icons/ci";
@@ -17,6 +17,7 @@ import { Link } from 'react-router-dom';
 import CustomLinks from './CustomLinks';
 import useLoggedInUser from '../../hooks/useLoggedInUser';
 import { useTranslation } from 'react-i18next';
+import { MdOutlineWidgets } from "react-icons/md";
 
 
 
@@ -41,9 +42,10 @@ export const Sidebar = () => {
     }
 
     const [loggedInUser] = useLoggedInUser();
+    const googleUsername=auth.currentUser?.email.split('@')[0]
     // console.log(loggedInUser)
     const name = loggedInUser[0]?.name ? loggedInUser[0]?.name : auth.currentUser?.displayName
-    const username = loggedInUser[0]?.username ? loggedInUser[0].username : "No Username Found :(";
+    const username = loggedInUser[0]?.username ? loggedInUser[0].username : googleUsername;
     const googleProfilePic = auth.currentUser?.photoURL
     const userProfilePic = loggedInUser[0]?.profileImage ? loggedInUser[0]?.profileImage : googleProfilePic ? googleProfilePic : "https://cdn-icons-png.flaticon.com/512/149/149071.png"
 
@@ -61,7 +63,7 @@ export const Sidebar = () => {
             <CustomLinks to='/home/explore' className='flex items-center mx-5 my-2 text-2xl px-4 cursor-pointer rounded-full hover:bg-blue-100 hover:text-blue-400 hover:font-semibold active:bg-blue-200 duration-150'><span><GoHash /></span><span className='flex items-center mx-5 my-2 font-semibold'>{t('Explore')}</span></CustomLinks>
             <CustomLinks to='/home/notification' className='flex items-center mx-5 my-2 text-2xl px-4 cursor-pointer rounded-full hover:bg-blue-100 hover:text-blue-400 hover:font-semibold active:bg-blue-200 duration-150'><span><FaRegBell /></span><span className='flex items-center mx-5 my-2 font-semibold'>{t('Notifications')}</span></CustomLinks>
             <CustomLinks to='/home/messages' className='flex items-center mx-5 my-2 text-2xl px-4 cursor-pointer rounded-full hover:bg-blue-100 hover:text-blue-400 hover:font-semibold active:bg-blue-200 duration-150'><span><SlEnvolope /></span><span className='flex items-center mx-5 my-2 font-semibold'>{t('Messages')}</span></CustomLinks>
-            <CustomLinks to='/home/widgets' className='lg:hidden flex items-center mx-5 my-2 text-2xl px-4 cursor-pointer rounded-full hover:bg-blue-100 hover:text-blue-400 hover:font-semibold active:bg-blue-200 duration-150'><span><FaRegBookmark /></span><span className='flex items-center mx-5 my-2 font-semibold'>{t('Widgets')}</span></CustomLinks>
+            <CustomLinks to='/home/widgets' className='lg:hidden flex items-center mx-5 my-2 text-2xl px-4 cursor-pointer rounded-full hover:bg-blue-100 hover:text-blue-400 hover:font-semibold active:bg-blue-200 duration-150'><span><MdOutlineWidgets  /></span><span className='flex items-center mx-5 my-2 font-semibold'>{t('Widgets')}</span></CustomLinks>
             {/* <CustomLinks to='/home/lists' className='flex items-center mx-5 my-2 text-2xl px-4 cursor-pointer rounded-full hover:bg-blue-100 hover:text-blue-400 hover:font-semibold active:bg-blue-200 duration-150'><span><LiaClipboardListSolid /></span><span className='flex items-center mx-5 my-2 font-semibold'>Lists</span></CustomLinks> */}
             <CustomLinks to='/premium' className='flex items-center mx-5 my-2 text-2xl px-4 cursor-pointer rounded-full hover:bg-blue-100 hover:text-blue-400 hover:font-semibold active:bg-blue-200 duration-150'><span><SlSocialTwitter /></span><span className='flex items-center mx-5 my-2 font-semibold'>{t('Premium')}</span></CustomLinks>
             <CustomLinks to='/home/profile' className='flex items-center mx-5 my-2 text-2xl px-4 cursor-pointer rounded-full hover:bg-blue-100 hover:text-blue-400 hover:font-semibold active:bg-blue-200 duration-150'><span><FaRegUser /></span><span className='flex items-center mx-5 my-2 font-semibold'>{t('Profile')}</span></CustomLinks>

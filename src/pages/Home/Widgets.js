@@ -32,8 +32,9 @@ export const Widgets = () => {
 
     return (
         <div className="px-2">
-            <div className="lg:hidden m-2 text-xl">
-                <Link to={'/home/feed'}><IoMdArrowRoundBack /></Link>
+            <div className="flex gap-4 items-center">
+                <Link className="lg:hidden m-2 text-xl" to={'/home/feed'}><IoMdArrowRoundBack /></Link>
+                <p className="lg:text-4xl text-lg font-bold">Widgets</p>
             </div>
             {/* <div className="flex items-center  my-5">
                 <select value={selectedLanguage} onChange={handleSelectChange} className="bg-blue-500 text-lg px-3 py-2 font-bold rounded-full text-white shadow-xl hover:bg-blue-600 duration-200">
