@@ -12,6 +12,7 @@ import { FaLocationDot } from "react-icons/fa6";
 import { IoLink } from "react-icons/io5";
 import { useTranslation } from 'react-i18next';
 import Info from '../UserInfo/Info';
+// import { Link } from 'react-router-dom';
 
 const MainProfile = ({ user }) => {
     const navigate = useNavigate();
@@ -155,7 +156,7 @@ const MainProfile = ({ user }) => {
                     {loggedInUser[0]?.location && <><FaLocationDot/><p>{loggedInUser[0]?.location}</p></>}
                     </div>
                     <div className='font-semibold  mt-2 flex items-center gap-3 text-blue-500 hover:text-blue-600 duration-200 hover:underline'>
-                        {loggedInUser[0]?.website && <><IoLink/><a href={loggedInUser[0]?.website}>{loggedInUser[0]?.website}</a></>}
+                        {loggedInUser[0]?.website && <><IoLink/><p className='cursor-pointer' onClick={()=>{window.open(`https://${loggedInUser[0]?.website}`)}}>{loggedInUser[0]?.website}</p></>}
                     </div>
                 </div>
             </div>
