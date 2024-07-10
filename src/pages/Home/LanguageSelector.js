@@ -5,6 +5,8 @@ import { IoIosCloseCircleOutline } from "react-icons/io"
 // import useLoggedInUser from "../../hooks/useLoggedInUser"
 // import { auth } from "../../firebase.init"
 import axios from "axios"
+import useLoggedInUser from "../../hooks/useLoggedInUser"
+import { auth } from "../../firebase.init"
 
 
 const style = {
@@ -45,19 +47,24 @@ const LanguageSelector = () => {
     const [open, setOpen] = useState(false)
     const [otp, setOtp] = useState('')
     // const [sentOTP, setSentOTP] = useState(123)
-    const [email, setEmail] = useState('')
+    // const [email, setEmail] = useState('')
     const [isOTPsent, setIsOTPsent] = useState(false)
     const [isOTPverified, setIsOTPverified] = useState(false)
     const [loading, setloading] = useState(false)
     const [message, setMessage] = useState('')
 
+    const [loggedInUser]=useLoggedInUser()
+    
+
+    const email=loggedInUser[0]?.email ? loggedInUser[0].email : auth.currentUser?.email
 
     const handleSendOTP = async () => {
         // e.preventDefault();
         // e.target.reset()
         try {
             setloading(true)
-            await axios.post('https://twitter-bcakend.vercel.app/send-otp', { email });
+            // await axios.post('https://twitter-bcakend.vercel.app/send-otp', { email });
+            await axios.post('https://twitter-backend-aexh.onrender.com/send-otp', { email });
             setIsOTPsent(true);
         } catch (error) {
             console.error('Error sending OTP', error);
@@ -72,7 +79,8 @@ const LanguageSelector = () => {
 
         try {
             setloading(true)
-            const response = await axios.post('https://twitter-bcakend.vercel.app/verify-otp', { email, otp },
+            // const response = await axios.post('https://twitter-bcakend.vercel.app/verify-otp', { email, otp },
+            const response = await axios.post('https://twitter-backend-aexh.onrender.com/verify-otp', { email, otp },
                 {
                     headers: {
                         'Content-Type': 'application/json'
@@ -152,7 +160,8 @@ const LanguageSelector = () => {
                                 ?
                                 <>
                                     <p className="mb-5 font-semibold text-lg">{t('OTP will be sent to thiis Email')}</p>
-                                    <TextField type="email" fullWidth label={t('Enter Your Email Address')} variant='filled' onChange={(e) => setEmail(e.target.value)} />
+                                    {/* <TextField type="email" fullWidth label={t('Enter Your Email Address')} variant='filled' onChange={(e) => setEmail(e.target.value)} /> */}
+                                    <div className="bg-gray-200 border rounded-md border-black px-3 py-2 cursor-not-allowed"><p className="font-semibold italic">{email}</p></div>
                                     {loading === false
                                         ?
                                         <>
@@ -172,7 +181,7 @@ const LanguageSelector = () => {
                                 // isOTPsent===true ? 
                                 isOTPverified === false ?
                                     <>
-                                        <p className="mb-5 font-semibold text-lg text-green-500">{t('OTP sent to your Email')}</p>
+                                        <p className="mb-5 font-semibold text-lg text-green-500">{t('OTP sent to your Email')} : <span className="italic">{email}</span></p>
                                         <TextField type="text" fullWidth label={t('Enter OTP')} variant='filled' onChange={(e) => setOtp(e.target.value)} />
                                         {
                                             loading === true

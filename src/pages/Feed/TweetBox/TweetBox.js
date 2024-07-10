@@ -92,7 +92,7 @@ const TweetBox = () => {
                     minutes: minutes,
                 }
                 console.log(userPost);
-                fetch('https://twitter-bcakend.vercel.app/post', {
+                fetch('https://twitter-backend-aexh.onrender.com/post', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json'
@@ -118,7 +118,7 @@ const TweetBox = () => {
                     minutes: minutes,
                 }
                 console.log(userPost);
-                fetch('https://twitter-bcakend.vercel.app/post', {
+                fetch('https://twitter-backend-aexh.onrender.com/post', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json'

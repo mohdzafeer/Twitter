@@ -100,7 +100,7 @@ export default function EditProfile({ user, loggedInUser }) {
             }
     
             if (editedInfo) {
-                await axios.patch(`https://twitter-bcakend.vercel.app/userUpdates/${user?.email}`, editedInfo)
+                await axios.patch(`https://twitter-backend-aexh.onrender.com/userUpdates/${user?.email}`, editedInfo)
                 setOpen(false)
             }
         }

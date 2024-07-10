@@ -5,9 +5,11 @@ import { useState } from 'react'
 import { auth, provider } from '../../firebase.init'
 import { useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth'
 import { Link,  useNavigate } from 'react-router-dom'
-import { signInWithPopup, } from 'firebase/auth'
+// import { signInWithPopup, } from 'firebase/auth'
+
 import { LoadingPage } from '../LoadingPage/LoadingPage'
 import { TextField } from '@mui/material'
+import { signInWithPopup } from 'firebase/auth'
 
 export const Login = () => {
     const [email, setEmail] = useState('')

@@ -8,7 +8,7 @@ const useLoggedInUser = () => {
     const [loggedInUser,setLoggedInUser]=useState({})
 
     useEffect(()=>{
-        fetch(`https://twitter-bcakend.vercel.app/loggedInUser?email=${email}`)
+        fetch(`https://twitter-backend-aexh.onrender.com/loggedInUser?email=${email}`)
         .then(res=>res.json())
         .then(data=>{
             // console.log(data)

@@ -19,7 +19,7 @@ const MainProfile = ({ user }) => {
     const googleUserProfilePic = auth?.currentUser?.photoURL
 
     const [loggedInUser] = useLoggedInUser()
-    const userProfilePic = loggedInUser[0]?.profileImage ? loggedInUser[0]?.profileImage : googleUserProfilePic ? googleUserProfilePic : "https://cdn.pixabay.com/photo/2019/07/26/16/48/music-cover-4365147_640.jpg"
+    const userProfilePic = loggedInUser[0]?.profileImage ? loggedInUser[0]?.profileImage : googleUserProfilePic ? googleUserProfilePic : "https://cdn-icons-png.flaticon.com/512/149/149071.png"
     const Name = loggedInUser[0]?.name ? loggedInUser[0].name : auth.currentUser?.displayName;
     const userName = loggedInUser[0]?.username ? loggedInUser[0].username : auth.currentUser?.email.split('@')[0];
     // const Email = loggedInUser[0]?.email ? loggedInUser[0].email : auth.currentUser?.email;
@@ -49,7 +49,7 @@ const MainProfile = ({ user }) => {
                 setIsLoading(false)
 
                 if (url) {
-                    axios.patch(`https://twitter-bcakend.vercel.app/userUpdates/${user?.email}`, userCoverImage)
+                    axios.patch(`https://twitter-backend-aexh.onrender.com/userUpdates/${user?.email}`, userCoverImage)
                 }
             })
     }
@@ -73,7 +73,7 @@ const MainProfile = ({ user }) => {
                 setIsLoading(false)
                 // formData.set()
                 if (url) {
-                    axios.patch(`https://twitter-bcakend.vercel.app/userUpdates/${user?.email}`, userProfileImage)
+                    axios.patch(`https://twitter-backend-aexh.onrender.com/userUpdates/${user?.email}`, userProfileImage)
 
                 }
             })
@@ -85,7 +85,7 @@ const MainProfile = ({ user }) => {
     const [posts, setPosts] = useState([])
 
     useEffect(() => {
-        fetch(`https://twitter-bcakend.vercel.app/userPost?email=${user?.email}`)
+        fetch(`https://twitter-backend-aexh.onrender.com/userPost?email=${user?.email}`)
             .then(res => res.json())
             .then(data => {
                 setPosts(data)

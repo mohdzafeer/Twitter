@@ -92,7 +92,8 @@ export const SignUp = () => {
     const handleSendOtp = async () => {
         try {
             
-            await axios.post('https://twitter-bcakend.vercel.app/send-otp', { email });
+            // await axios.post('https://twitter-bcakend.vercel.app/send-otp', { email });
+            await axios.post('https://twitter-backend-aexh.onrender.com/send-otp', { email });
             setIsOTPsent(true);
         } catch (error) {
             console.error('Error sending OTP', error);
@@ -104,7 +105,7 @@ export const SignUp = () => {
         console.log('Verifying OTP with:', { email, otp });
 
         try {
-            const response = await axios.post('https://twitter-bcakend.vercel.app/verify-otp', { email, otp },
+            const response = await axios.post('https://twitter-backend-aexh.onrender.com/verify-otp', { email, otp },
                 {
                     headers: {
                         'Content-Type': 'application/json'
