@@ -63,7 +63,7 @@ const Post = ({ p }) => {
             </div>
             <div className='border-b-2 pb-2 w-full text-sm text-blue-400 font-semibold'>
                 {date &&
-                    <p>
+                    <p className="opacity-75">
                         <span className="text-black">{('Posted on')} </span>{date.split('T')[0]}
                         <span className="text-black"> {('at')} </span>{hours && <span className="font-semibold text-blue-400 ">{hours}:{minutes}</span>}
                     </p>}
