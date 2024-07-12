@@ -34,6 +34,10 @@ const Post = ({ p }) => {
 
     
     // console.log(p)
+
+    
+
+
     const { name, username, photo, post, profilePhoto, date, hours, minutes } = p;
     return (
         <div className='border rounded-lg my-10 lg:p-5 py-5 px-1'>

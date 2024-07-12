@@ -120,7 +120,7 @@ const LanguageSelector = () => {
             <div className="flex items-center  my-5">
                 <select value={selectedLanguage} onChange={handleSelectChange} className="bg-blue-500 text-lg px-3 py-2 font-bold rounded-full text-white shadow-xl hover:bg-blue-600 duration-200">
 
-                    <option value="en">English</option>
+                    <option value="en" selected>English</option>
                     <option value="fr">French</option>
                     <option value="hn">Hindi</option>
                     <option value="sp">Spanish</option>
