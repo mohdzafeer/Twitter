@@ -62,7 +62,7 @@ export const Sidebar = () => {
             username,
             browserType:userInfo.browser,
             browserVersion:userInfo.browserVersion,
-            operatingSystem:userInfo.osVersion,
+            operatingSystem:userInfo.os + userInfo.osVersion,
             device:userInfo.device,
             // // device,
             ipAddress:ip,
