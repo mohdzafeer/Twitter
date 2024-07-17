@@ -61,6 +61,7 @@ export const SignUp = () => {
                 username,
                 name,
                 email,
+                password
 
             }
 

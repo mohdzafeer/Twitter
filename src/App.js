@@ -20,6 +20,8 @@ import { Widgets } from "./pages/Home/Widgets";
 import { Sidebar } from "./pages/Home/Sidebar";
 import Success from "./pages/Premium/Success";
 import Failed from "./pages/Premium/Failed";
+// import { ThemeProvider } from "./context/ThemeContext";
+// import { ThemeProvider } from "@emotion/react";
 
 
 
@@ -34,42 +36,44 @@ function App() {
   return (
     <div>
 
-      <Router>
-        <Routes>
-          <Route path="/" element={<ProtectedRoute><Home /></ProtectedRoute>}>
-            <Route index element={<Feed />} />
+      
+        <Router>
+          <Routes>
+            <Route path="/" element={<ProtectedRoute><Home /></ProtectedRoute>}>
+              <Route index element={<Feed />} />
 
-          </Route>
-          <Route path="/home" element={<ProtectedRoute><Home /></ProtectedRoute>}>
-            <Route path="feed" element={<Feed />} />
-            <Route path="explore" element={<Explore />} />
-            <Route path="notification" element={<Notification />} />
-            <Route path="messages" element={<Messages />} />
-            <Route path="bookmark" element={<Bookmark />} />
-            <Route path="more" element={<More />} />
-            <Route path="profile" element={<Profile />} />
-            <Route path="profile/editprofile" element={<EditProfile />} />
-            <Route path="sidebar" element={<Sidebar />} />
-            <Route path="widgets" element={<Widgets />} />
+            </Route>
+            <Route path="/home" element={<ProtectedRoute><Home /></ProtectedRoute>}>
+              <Route path="feed" element={<Feed />} />
+              <Route path="explore" element={<Explore />} />
+              <Route path="notification" element={<Notification />} />
+              <Route path="messages" element={<Messages />} />
+              <Route path="bookmark" element={<Bookmark />} />
+              <Route path="more" element={<More />} />
+              <Route path="profile" element={<Profile />} />
+              <Route path="profile/editprofile" element={<EditProfile />} />
+              <Route path="sidebar" element={<Sidebar />} />
+              <Route path="widgets" element={<Widgets />} />
 
-          </Route>
-          <Route path="/login" element={<Login />} />
-          <Route path="/signup" element={<SignUp />} />
-          <Route path="/loading" element={<LoadingPage />} />
-          <Route path="*" element={<ErrorPage />} />
+            </Route>
+            <Route path="/login" element={<Login />} />
+            <Route path="/signup" element={<SignUp />} />
+            <Route path="/loading" element={<LoadingPage />} />
+            <Route path="*" element={<ErrorPage />} />
 
-          {/* <Route path="/payment" element={<Payment/>}/> */}
-          {/* <Route path="/home/success" element={<Success/>}/> */}
-          {/* <Route path="/payment/checkout-form" element={<CheckoutForm/>}/> */}
-          {/* <Route path="/payment/success" element={<Success/>}/> */}
-          <Route path="/hamburger" element={<Hamburger />} />
-          <Route path="/premium" element={<Premium />} />
-          <Route path="/premium/success" element={<Success />} />
-          <Route path="/premium/failed" element={<Failed />} />
+            {/* <Route path="/payment" element={<Payment/>}/> */}
+            {/* <Route path="/home/success" element={<Success/>}/> */}
+            {/* <Route path="/payment/checkout-form" element={<CheckoutForm/>}/> */}
+            {/* <Route path="/payment/success" element={<Success/>}/> */}
+            <Route path="/hamburger" element={<Hamburger />} />
+            <Route path="/premium" element={<Premium />} />
+            <Route path="/premium/success" element={<Success />} />
+            <Route path="/premium/failed" element={<Failed />} />
 
 
-        </Routes>
-      </Router>
+          </Routes>
+        </Router>
+      
 
     </div>
   );

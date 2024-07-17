@@ -8,7 +8,7 @@ import { SlEnvolope } from "react-icons/sl";
 import { FaRegUser } from "react-icons/fa6";
 import { CiCircleMore } from "react-icons/ci";
 import { SlSocialTwitter } from "react-icons/sl";
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Divider, Menu, MenuItem } from '@mui/material';
 import { useNavigate } from 'react-router';
 import {  useSignOut } from 'react-firebase-hooks/auth';
@@ -18,14 +18,64 @@ import CustomLinks from './CustomLinks';
 import useLoggedInUser from '../../hooks/useLoggedInUser';
 import { useTranslation } from 'react-i18next';
 import { MdOutlineWidgets } from "react-icons/md";
+import { getUserInfo } from '../Profile/UserInfo/getUserinfo';
+import { getUserIp } from '../Profile/UserInfo/getUserIP';
+import axios from 'axios';
 
 
 
 export const Sidebar = () => {
     const navigate = useNavigate()
     // const user = useAuthState(auth)
+    // const [loggedInUser]=useLoggedInUser()
+    const [loggedInUser] = useLoggedInUser();
+    const googleUsername=auth.currentUser?.email.split('@')[0]
+    // console.log(loggedInUser)
+    const name = loggedInUser[0]?.name ? loggedInUser[0]?.name : auth.currentUser?.displayName
+    const username = loggedInUser[0]?.username ? loggedInUser[0].username : googleUsername;
+    const googleProfilePic = auth.currentUser?.photoURL
+    const userProfilePic = loggedInUser[0]?.profileImage ? loggedInUser[0]?.profileImage : googleProfilePic ? googleProfilePic : "https://cdn-icons-png.flaticon.com/512/149/149071.png"
 
+    const [userInfo, setUserInfo] = useState({});
+    const [ip, setIp] = useState('');
+
+    useEffect(() => {
+        const fetchData = async () => {
+            const info = getUserInfo();
+            const ipAddress = await getUserIp();
+            setUserInfo(info);
+            setIp(ipAddress);
+        };
+
+        fetchData();
+
+        
+    }, []);
+    
     const [signOut] = useSignOut(auth);
+
+    const handleSignout= async()=>{
+        const lastUserInfo = {
+            name,
+            email:loggedInUser[0]?.email ? loggedInUser[0]?.email : auth.currentUser?.email,
+            username,
+            browserType:userInfo.browser,
+            browserVersion:userInfo.browserVersion,
+            operatingSystem:userInfo.osVersion,
+            device:userInfo.device,
+            // // device,
+            ipAddress:ip,
+        }
+
+        if (lastUserInfo) {
+            // await axios.patch(`https://twitter-backend-aexh.onrender.com/lastUser`, lastUserInfo)
+            await axios.post(`https://twitter-backend-aexh.onrender.com/lastUser`, lastUserInfo)
+            
+        }
+
+        await signOut();
+
+    }
 
 
 
@@ -41,13 +91,8 @@ export const Sidebar = () => {
         setAnchorEl(null)
     }
 
-    const [loggedInUser] = useLoggedInUser();
-    const googleUsername=auth.currentUser?.email.split('@')[0]
-    // console.log(loggedInUser)
-    const name = loggedInUser[0]?.name ? loggedInUser[0]?.name : auth.currentUser?.displayName
-    const username = loggedInUser[0]?.username ? loggedInUser[0].username : googleUsername;
-    const googleProfilePic = auth.currentUser?.photoURL
-    const userProfilePic = loggedInUser[0]?.profileImage ? loggedInUser[0]?.profileImage : googleProfilePic ? googleProfilePic : "https://cdn-icons-png.flaticon.com/512/149/149071.png"
+    
+    
 
 
     const { t } = useTranslation();
@@ -80,7 +125,7 @@ export const Sidebar = () => {
                 <div className='w-44  border-white border-4 rounded-full overflow-hidden flex justify-center items-center bg-white shadow-xl'>
                 <img className='min-w-full min-h-full shrink-0' width={100} src={userProfilePic} alt='userProfil' />
                 </div>
-                <Link to='/home/profile' className='flex flex-col justify-center items-start'>
+                <Link to='/home/profile' className='flex flex-col justify-center items-start Link'>
                     <div className='flex flex-col justify-center items-start'>
                         <p className='text-lg font-semibold '>{name}</p>
                         <p className='opacity-75 text-sm'>{name ? `@${username}` : auth.currentUser?.email}</p>
@@ -117,7 +162,8 @@ export const Sidebar = () => {
                             <div className='flex flex-col items-start'>
                                 <MenuItem onClick={() => navigate('/login')}>{t('Add an Existing Account')}</MenuItem>
                                 <MenuItem onClick={async () => {
-                                    await signOut();
+                                    // await signOut();
+                                    handleSignout()
 
                                 }}>{t('Log Out')}</MenuItem>
                             </div>

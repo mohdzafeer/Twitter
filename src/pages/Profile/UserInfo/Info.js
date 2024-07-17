@@ -4,6 +4,9 @@ import { IoIosCloseCircleOutline } from "react-icons/io"
 import { getUserInfo } from "./getUserinfo"
 import { getUserIp } from "./getUserIP"
 import { useTranslation } from "react-i18next"
+import useLoggedInUser from "../../../hooks/useLoggedInUser"
+import { auth } from "../../../firebase.init"
+// import axios from "axios"
 
 // import react from 'react'
 
@@ -23,6 +26,10 @@ const style = {
 }
 const Info = () => {
 
+    // const [password,setpassword]=useState('')
+    const [loggedInUser]=useLoggedInUser()
+    const email=loggedInUser[0]?.email ? loggedInUser[0].email : auth.currentUser?.email
+
     const { t } = useTranslation();
 
     const [open, setOpen] = useState(false)
@@ -40,6 +47,8 @@ const Info = () => {
         };
 
         fetchData();
+
+        
     }, []);
 
 
@@ -55,10 +64,12 @@ const Info = () => {
                 <Box sx={style} className='modal'>
                     <div className="flex items-center justify-between">
                         <IconButton  onClick={() => setOpen(false)}><IoIosCloseCircleOutline /></IconButton>
-                        <h1 className="text-3xl font-bold">User's Information</h1>
+                        <h1 className="text-3xl font-bold">{t(`User's Information`)}</h1>
                     </div>
                     <div className="flex flex-col mt-10">
                         
+                        <p className="italic font-semibold"><span className="font-bold not-italic text-lg">Email</span>: {email} </p>
+                        {/* <p className="italic font-semibold"><span className="font-bold not-italic text-lg">Password</span>: {email} </p> */}
                         <p className="italic font-semibold"><span className="font-bold not-italic text-lg">Browser</span>: {userInfo.browser} {userInfo.browserVersion}</p>
                         <p className="italic font-semibold"><span className="font-bold not-italic text-lg">OS:</span> {userInfo.os} {userInfo.osVersion}</p>
                         {userInfo.device && <p className="italic font-semibold"><span className="font-bold not-italic text-lg">Device:</span> {userInfo.device}</p>}

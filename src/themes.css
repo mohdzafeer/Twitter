@@ -1,0 +1,40 @@
+/* src/themes.css */
+
+button {
+    transition: background-color 0.3s ease;
+  }
+  
+  button.default {
+    background-color: blue;
+    color: white;
+  }
+  
+
+  
+  Link.en{
+    background-color: rgb(41, 108, 255);
+  }
+  
+  button.en:hover{
+    background-color: rgb(109, 155, 255);
+  }
+
+
+
+  button.fr{
+    background-color: red;
+  }
+  
+  button.fr:hover{
+    background-color: rgb(253, 90, 90);
+  }
+
+  Link.fr{
+    background-color: red;
+  }
+
+
+
+  
+  /* Add more language-specific styles as needed */
+  

@@ -87,5 +87,11 @@
   "DOB_subheading": "Isso só pode ser alterado algumas vezes, certifique-se de inserir corretamente",
   "OK": "OK",
   "Posted on": "Publicado em",
-  "at": "às"
+  "at": "às",
+
+
+
+  "User's Information": "Informações do usuário",
+  "View Previous Users' Info": "Ver informações de usuários anteriores",
+  "Previous Users' History": "Histórico de usuários anteriores"
 }

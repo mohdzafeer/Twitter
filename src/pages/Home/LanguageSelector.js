@@ -2,8 +2,6 @@ import { Box, IconButton, Modal, TextField } from "@mui/material"
 import { useState } from "react"
 import { useTranslation } from "react-i18next"
 import { IoIosCloseCircleOutline } from "react-icons/io"
-// import useLoggedInUser from "../../hooks/useLoggedInUser"
-// import { auth } from "../../firebase.init"
 import axios from "axios"
 import useLoggedInUser from "../../hooks/useLoggedInUser"
 import { auth } from "../../firebase.init"
@@ -26,7 +24,7 @@ const style = {
 const LanguageSelector = () => {
 
     const { t, i18n } = useTranslation();
-    // const [loggedInUser] = useLoggedInUser();
+
 
     const [selectedLanguage, setSelectedLanguage] = useState('');
 
@@ -35,12 +33,14 @@ const LanguageSelector = () => {
     };
     const runFunction = (value) => {
         changeLanguage(`${value}`)
+
     };
     const handleSelectChange = (event) => {
         const value = event.target.value;
         setSelectedLanguage(value);
         runFunction(value);
     };
+
 
 
 
@@ -54,7 +54,7 @@ const LanguageSelector = () => {
     const [message, setMessage] = useState('')
 
     const [loggedInUser]=useLoggedInUser()
-    
+
 
     const email=loggedInUser[0]?.email ? loggedInUser[0].email : auth.currentUser?.email
 
@@ -120,7 +120,7 @@ const LanguageSelector = () => {
             <div className="flex items-center  my-5">
                 <select value={selectedLanguage} onChange={handleSelectChange} className="bg-blue-500 text-lg px-3 py-2 font-bold rounded-full text-white shadow-xl hover:bg-blue-600 duration-200">
 
-                    <option value="en" selected>English</option>
+                    <option value="en">English</option>
                     <option value="fr">French</option>
                     <option value="hn">Hindi</option>
                     <option value="sp">Spanish</option>
@@ -215,3 +215,14 @@ const LanguageSelector = () => {
     )
 }
 export default LanguageSelector
+
+
+
+
+
+
+
+
+
+
+

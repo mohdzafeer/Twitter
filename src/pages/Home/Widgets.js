@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 // import { useState } from "react";
 import LanguageSelector from "./LanguageSelector";
+import UserHistory from "./UserHistory";
 
 
 export const Widgets = () => {
@@ -49,7 +50,10 @@ export const Widgets = () => {
                     
                 </select>
             </div> */}
+            <div className="flex items-center gap-4">
             <LanguageSelector/>
+            <UserHistory/>
+            </div>
             <div className="flex items-center gap-5">
                 <input className="px-3 py-2 border-gray-400 border-2 font-sans rounded-full w-10/12 bg-gray-300" type='text' placeholder={t('Search')}></input>
                 <FaSearch className="text-xl cursor-pointer opacity-60 hover:opacity-100 hover:scale-105 duration-150" />

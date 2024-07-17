@@ -9,7 +9,7 @@ export const getUserInfo = () => {
     browserVersion: result.browser.version,
     os: result.os.name,
     osVersion: result.os.version,
-    device: result.device.model,
+    device: result.device.model || 'Desktop',
     deviceType: result.device.type,
   };
 };
