@@ -4,6 +4,8 @@ import { TbMessageCircle } from "react-icons/tb";
 import { BsRepeat } from "react-icons/bs";
 import { FaRegHeart } from "react-icons/fa6";
 import { FiShare } from "react-icons/fi";
+import { useContext } from "react";
+import { LanguageContext } from "../../../LanguageContext";
 // import { useEffect } from "react";
 // import { useAuthState } from 'react-firebase-hooks/auth';
 // import { auth } from '../../../firebase.init';
@@ -39,8 +41,11 @@ const Post = ({ p }) => {
 
 
     const { name, username, photo, post, profilePhoto, date, hours, minutes } = p;
+
+    const{lang}=useContext(LanguageContext)
+    const dynamicClassBackground=lang==='en'? "bg-white" : lang==='hn' ? 'bg-orange-100' : lang==='fr' ? 'bg-red-100':lang==='sp' ? 'bg-blue-100':lang==='pr'?'bg-pink-100':lang==='bn'?'bg-green-100':lang==='tm'?'bg-rose-100': ''
     return (
-        <div className='border rounded-lg my-10 lg:p-5 py-5 px-1'>
+        <div className={`border rounded-lg my-10 lg:p-5 py-5 px-1 ${dynamicClassBackground} `}>
             <div className='flex border-b-2 pb-5'>
                 <img src={
                     profilePhoto ? profilePhoto : "https://cdn-icons-png.flaticon.com/512/149/149071.png"

@@ -1,10 +1,11 @@
 import { Box, IconButton, Modal, TextField } from "@mui/material"
-import { useState } from "react"
+import { useContext, useState } from "react"
 import { useTranslation } from "react-i18next"
 import { IoIosCloseCircleOutline } from "react-icons/io"
 import axios from "axios"
 import useLoggedInUser from "../../hooks/useLoggedInUser"
 import { auth } from "../../firebase.init"
+import { LanguageContext, useLang } from "../../LanguageContext"
 
 
 const style = {
@@ -24,7 +25,8 @@ const style = {
 const LanguageSelector = () => {
 
     const { t, i18n } = useTranslation();
-
+    // const {lang,setLang}=useContext(LanguageContext)
+    const {lang,setLang} = useLang()
 
     const [selectedLanguage, setSelectedLanguage] = useState('');
 
@@ -39,6 +41,7 @@ const LanguageSelector = () => {
         const value = event.target.value;
         setSelectedLanguage(value);
         runFunction(value);
+        setLang(value)
     };
 
 
@@ -114,35 +117,46 @@ const LanguageSelector = () => {
 
 
 
+    
+
+
+
 
     const languageOptions = () => {
+
+        
         return (
             <div className="flex items-center  my-5">
-                <select value={selectedLanguage} onChange={handleSelectChange} className="bg-blue-500 text-lg px-3 py-2 font-bold rounded-full text-white shadow-xl hover:bg-blue-600 duration-200">
+                <select value={selectedLanguage} onChange={handleSelectChange} className={` text-lg px-3 py-2 font-bold rounded-full text-white shadow-xl  duration-200 ${dynamicClassButton}`}>
 
-                    <option value="en">English</option>
-                    <option value="fr">French</option>
-                    <option value="hn">Hindi</option>
-                    <option value="sp">Spanish</option>
-                    <option value="pr">Portuguese</option>
-                    <option value="tm">Tamil</option>
-                    <option value="bn">Bengali</option>
+                    <option  value="en">English</option>
+                    <option  value="fr">French</option>
+                    <option  value="hn">Hindi</option>
+                    <option  value="sp">Spanish</option>
+                    <option  value="pr">Portuguese</option>
+                    <option  value="tm">Tamil</option>
+                    <option  value="bn">Bengali</option>
 
                 </select>
             </div>
         )
     }
 
+    const dynamicClassBackground=lang==='en'? "bg-white" : lang==='hn' ? 'bg-orange-100' : lang==='fr' ? 'bg-red-100':lang==='sp' ? 'bg-blue-100':lang==='pr'?'bg-pink-100':lang==='bn'?'bg-green-100':lang==='tm'?'bg-rose-100': ''
+    
+    const dynamicClassButton=lang==='en'? "bg-blue-500 hover:bg-blue-600 active:bg-blue-500" : lang==='hn' ? 'bg-orange-500 hover:bg-orange-600 active:bg-orange-500' : lang==='fr' ? 'bg-red-500 hover:bg-red-600 active:bg-red-500':lang==='sp' ? 'bg-blue-500 hover:bg-blue-600 active:bg-blue-500':lang==='pr'?'bg-pink-500 hover:bg-pink-600 active:bg-pink-500':lang==='bn'?'bg-green-500 hover:bg-green-600 active:bg-green-500':lang==='tm'?'bg-rose-500 hover:bg-rose-600 active:bg-rose-500': ''
 
     return (
+        
         <div>
-            <button className=' shadow-xl bg-blue-500 hover:bg-blue-600  active:bg-blue-500 duration-300 px-4 py-2  my-5  font-bold text-white border  rounded-full' onClick={() => setOpen(true)}>{t('Change Language')}</button>
+            <button className={` shadow-xl ${dynamicClassButton} duration-300 px-4 py-2  my-5  font-bold text-white border  rounded-full`} onClick={() => setOpen(true)}>{t('Change Language')}</button>
             <Modal
                 open={open}
                 aria-labelledby="modal-modal-title"
                 aria-describedby="modal-modal-description"
+                
             >
-                <Box sx={style} className='modal'>
+                <Box sx={style} className={`modal `}>
                     <div className="flex items-center justify-between">
                         <IconButton onClick={() => {
                             setOpen(false);
@@ -165,7 +179,7 @@ const LanguageSelector = () => {
                                     {loading === false
                                         ?
                                         <>
-                                            <button className="bg-blue-500 text-white w-full rounded-lg font-bold  py-3 mt-3 hover:bg-blue-600 active:bg-blue-500 duration-200" onClick={() => { handleSendOTP() }}>
+                                            <button className={` text-white w-full rounded-lg font-bold  py-3 mt-3 duration-200 ${dynamicClassButton}`} onClick={() => { handleSendOTP() }}>
                                                 {t('Send OTP')}
                                             </button>
                                         </>
@@ -189,7 +203,7 @@ const LanguageSelector = () => {
                                                 <button className="bg-gray-600 text-white w-full rounded-lg font-bold  py-3 mt-3 cursor-wait  duration-200" >Submiting...</button>
                                                 :
 
-                                                <button className="bg-blue-500 text-white w-full rounded-lg font-bold  py-3 mt-3 hover:bg-blue-600 active:bg-blue-500 duration-200" onClick={() => { verifyOTP() }}>{t('Submit')}</button>
+                                                <button className={` text-white w-full rounded-lg font-bold  py-3 mt-3  duration-200 ${dynamicClassButton}`} onClick={() => { verifyOTP() }}>{t('Submit')}</button>
                                         }
                                     </>
                                     :
@@ -197,7 +211,7 @@ const LanguageSelector = () => {
                                         <p className="mb-5 font-semibold text-lg text-green-400">{t('OTP verified Successfully')}</p>
                                         <p className="mb-5 font-semibold text-lg">{t('Select your Language')}</p>
                                         {languageOptions()}
-                                        <button className="bg-blue-500 text-white w-full rounded-lg font-bold  py-3 mt-3 hover:bg-blue-600 active:bg-blue-500 duration-200" onClick={() => {
+                                        <button className={` text-white w-full rounded-lg font-bold  py-3 mt-3  duration-200 ${dynamicClassButton}`} onClick={() => {
                                             setOpen(false);
                                             setIsOTPsent(false);
                                             setIsOTPverified(false);

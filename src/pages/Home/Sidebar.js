@@ -8,7 +8,7 @@ import { SlEnvolope } from "react-icons/sl";
 import { FaRegUser } from "react-icons/fa6";
 import { CiCircleMore } from "react-icons/ci";
 import { SlSocialTwitter } from "react-icons/sl";
-import { useEffect, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import { Divider, Menu, MenuItem } from '@mui/material';
 import { useNavigate } from 'react-router';
 import {  useSignOut } from 'react-firebase-hooks/auth';
@@ -21,6 +21,7 @@ import { MdOutlineWidgets } from "react-icons/md";
 import { getUserInfo } from '../Profile/UserInfo/getUserinfo';
 import { getUserIp } from '../Profile/UserInfo/getUserIP';
 import axios from 'axios';
+import { LanguageContext, useLang } from '../../LanguageContext';
 
 
 
@@ -98,28 +99,30 @@ export const Sidebar = () => {
     const { t } = useTranslation();
 
     
-
-
+    const{lang}=useLang()
+    const dynamicClassHover=lang==='en'? "hover:bg-blue-200" : lang==='hn' ? 'hover:bg-orange-200' : lang==='fr' ? 'hover:bg-red-200':lang==='sp' ? 'hover:bg-blue-200':lang==='pr'?'hover:bg-pink-200':lang==='bn'?'hover:bg-green-200':lang==='tm'?'hover:bg-rose-200': ''
+     
+    const dynamicClassButton=lang==='en'? "bg-blue-500 hover:bg-blue-600 active:bg-blue-500" : lang==='hn' ? 'bg-orange-500 hover:bg-orange-600 active:bg-orange-500' : lang==='fr' ? 'bg-red-500 hover:bg-red-600 active:bg-red-500':lang==='sp' ? 'bg-blue-500 hover:bg-blue-600 active:bg-blue-500':lang==='pr'?'bg-pink-500 hover:bg-pink-600 active:bg-pink-500':lang==='bn'?'bg-green-500 hover:bg-green-600 active:bg-green-500':lang==='tm'?'bg-rose-500 hover:bg-rose-600 active:bg-rose-500': ''
 
     return (
-        <div>
+        <div >
             <Link to='/home/feed'><img className=' mx-5 my-2 cursor-pointer' src={twitter} width={70} alt='twitter' /></Link>
-            <CustomLinks to='/home/feed' className='flex items-center mx-5 my-2 text-2xl px-4 cursor-pointer rounded-full hover:bg-blue-100 hover:text-blue-400 hover:font-semibold active:bg-blue-200 duration-150'><span><FaHome /></span><span className='flex items-center mx-5 my-2 font-semibold'>{t('Home')}</span></CustomLinks>
-            <CustomLinks to='/home/explore' className='flex items-center mx-5 my-2 text-2xl px-4 cursor-pointer rounded-full hover:bg-blue-100 hover:text-blue-400 hover:font-semibold active:bg-blue-200 duration-150'><span><GoHash /></span><span className='flex items-center mx-5 my-2 font-semibold'>{t('Explore')}</span></CustomLinks>
-            <CustomLinks to='/home/notification' className='flex items-center mx-5 my-2 text-2xl px-4 cursor-pointer rounded-full hover:bg-blue-100 hover:text-blue-400 hover:font-semibold active:bg-blue-200 duration-150'><span><FaRegBell /></span><span className='flex items-center mx-5 my-2 font-semibold'>{t('Notifications')}</span></CustomLinks>
-            <CustomLinks to='/home/messages' className='flex items-center mx-5 my-2 text-2xl px-4 cursor-pointer rounded-full hover:bg-blue-100 hover:text-blue-400 hover:font-semibold active:bg-blue-200 duration-150'><span><SlEnvolope /></span><span className='flex items-center mx-5 my-2 font-semibold'>{t('Messages')}</span></CustomLinks>
-            <CustomLinks to='/home/widgets' className='lg:hidden flex items-center mx-5 my-2 text-2xl px-4 cursor-pointer rounded-full hover:bg-blue-100 hover:text-blue-400 hover:font-semibold active:bg-blue-200 duration-150'><span><MdOutlineWidgets  /></span><span className='flex items-center mx-5 my-2 font-semibold'>{t('Widgets')}</span></CustomLinks>
+            <CustomLinks to='/home/feed' className={`flex items-center mx-5 my-2 text-2xl px-4 cursor-pointer rounded-full  hover:font-semibold ${dynamicClassHover} duration-150`}><span><FaHome /></span><span className='flex items-center mx-5 my-2 font-semibold'>{t('Home')}</span></CustomLinks>
+            <CustomLinks to='/home/explore' className={`flex items-center mx-5 my-2 text-2xl px-4 cursor-pointer rounded-full  hover:font-semibold ${dynamicClassHover} duration-150`}><span><GoHash /></span><span className='flex items-center mx-5 my-2 font-semibold'>{t('Explore')}</span></CustomLinks>
+            <CustomLinks to='/home/notification' className={`flex items-center mx-5 my-2 text-2xl px-4 cursor-pointer rounded-full  hover:font-semibold ${dynamicClassHover} duration-150`}><span><FaRegBell /></span><span className='flex items-center mx-5 my-2 font-semibold'>{t('Notifications')}</span></CustomLinks>
+            <CustomLinks to='/home/messages' className={`flex items-center mx-5 my-2 text-2xl px-4 cursor-pointer rounded-full  hover:font-semibold ${dynamicClassHover} duration-150`}><span><SlEnvolope /></span><span className='flex items-center mx-5 my-2 font-semibold'>{t('Messages')}</span></CustomLinks>
+            <CustomLinks to='/home/widgets' className={`flex items-center mx-5 my-2 text-2xl px-4 cursor-pointer rounded-full  hover:font-semibold ${dynamicClassHover} duration-150 lg:hidden`}><span><MdOutlineWidgets  /></span><span className='flex items-center mx-5 my-2 font-semibold '>{t('Widgets')}</span></CustomLinks>
             {/* <CustomLinks to='/home/lists' className='flex items-center mx-5 my-2 text-2xl px-4 cursor-pointer rounded-full hover:bg-blue-100 hover:text-blue-400 hover:font-semibold active:bg-blue-200 duration-150'><span><LiaClipboardListSolid /></span><span className='flex items-center mx-5 my-2 font-semibold'>Lists</span></CustomLinks> */}
-            <CustomLinks to='/premium' className='flex items-center mx-5 my-2 text-2xl px-4 cursor-pointer rounded-full hover:bg-blue-100 hover:text-blue-400 hover:font-semibold active:bg-blue-200 duration-150'><span><SlSocialTwitter /></span><span className='flex items-center mx-5 my-2 font-semibold'>{t('Premium')}</span></CustomLinks>
-            <CustomLinks to='/home/profile' className='flex items-center mx-5 my-2 text-2xl px-4 cursor-pointer rounded-full hover:bg-blue-100 hover:text-blue-400 hover:font-semibold active:bg-blue-200 duration-150'><span><FaRegUser /></span><span className='flex items-center mx-5 my-2 font-semibold'>{t('Profile')}</span></CustomLinks>
-            <CustomLinks to='/home/more' className='flex items-center mx-5 my-2 text-2xl px-4 cursor-pointer rounded-full hover:bg-blue-100 hover:text-blue-400 hover:font-semibold active:bg-blue-200 duration-150'><span><CiCircleMore /></span><span className='flex items-center mx-5 my-2 font-semibold'>{t('More')}</span></CustomLinks>
+            <CustomLinks to='/premium' className={`flex items-center mx-5 my-2 text-2xl px-4 cursor-pointer rounded-full  hover:font-semibold ${dynamicClassHover} duration-150`}><span><SlSocialTwitter /></span><span className='flex items-center mx-5 my-2 font-semibold'>{t('Premium')}</span></CustomLinks>
+            <CustomLinks to='/home/profile' className={`flex items-center mx-5 my-2 text-2xl px-4 cursor-pointer rounded-full  hover:font-semibold ${dynamicClassHover} duration-150`}><span><FaRegUser /></span><span className='flex items-center mx-5 my-2 font-semibold'>{t('Profile')}</span></CustomLinks>
+            <CustomLinks to='/home/more' className={`flex items-center mx-5 my-2 text-2xl px-4 cursor-pointer rounded-full  hover:font-semibold ${dynamicClassHover} duration-150`}><span><CiCircleMore /></span><span className='flex items-center mx-5 my-2 font-semibold'>{t('More')}</span></CustomLinks>
             {/* <Select  className='lg:w-full w-2/3 flex items-center justify-center lg:mx-5 mx-2 my-2 text-2xl font-bold bg-blue-500 h-14 rounded-full text-white hover:bg-blue-600 active:bg-blue-700 duration-150' >
             <option className='text-white' selected value='English'>English</option>
             <option className='text-white' value='Hindi'>Hindi</option>
             </Select> */}
             <Link
                 to={'/home/feed'}
-                className='lg:w-full w-2/3 flex items-center justify-center lg:mx-5 mx-2 my-2 text-2xl font-bold bg-blue-500 h-14 rounded-full text-white hover:bg-blue-600 active:bg-blue-700 duration-75 active:scale-95' >{t('Tweet')}</Link>
+                className={`lg:w-full w-2/3 flex items-center justify-center lg:mx-5 mx-2 my-2 text-2xl font-bold  h-14 rounded-full text-white  duration-75 active:scale-95 ${dynamicClassButton}`} >{t('Tweet')}</Link>
 
             <div className='flex gap-2 mt-28 lg:mt-60 rounded-full bg-gray-100 shadow-lg hover:bg-gray-200 duration-150 h-24 max-h-32 cursor-pointer active:bg-gray-300 px-3 py-2'>
                 <div className='w-44  border-white border-4 rounded-full overflow-hidden flex justify-center items-center bg-white shadow-xl'>

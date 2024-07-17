@@ -6,6 +6,8 @@ import { useTranslation } from "react-i18next";
 // import { useState } from "react";
 import LanguageSelector from "./LanguageSelector";
 import UserHistory from "./UserHistory";
+import { useContext } from "react";
+import { LanguageContext, useLang } from "../../LanguageContext";
 
 
 export const Widgets = () => {
@@ -29,7 +31,9 @@ export const Widgets = () => {
     //     // console.log(`Selected language: ${value}`);
     //     changeLanguage(`${value}`)
     // };
-
+    
+    const{lang}=useLang()
+    const dynamicClassButton=lang==='en'? "bg-blue-500 hover:bg-blue-600 active:bg-blue-500" : lang==='hn' ? 'bg-orange-500 hover:bg-orange-600 active:bg-orange-500' : lang==='fr' ? 'bg-red-500 hover:bg-red-600 active:bg-red-500':lang==='sp' ? 'bg-blue-500 hover:bg-blue-600 active:bg-blue-500':lang==='pr'?'bg-pink-500 hover:bg-pink-600 active:bg-pink-500':lang==='bn'?'bg-green-500 hover:bg-green-600 active:bg-green-500':lang==='tm'?'bg-rose-500 hover:bg-rose-600 active:bg-rose-500': ''
 
     return (
         <div className="px-2">

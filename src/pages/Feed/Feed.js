@@ -1,11 +1,13 @@
-import { useEffect, useState } from "react"
+import { useContext, useEffect, useState } from "react"
 import TweetBox from "./TweetBox/TweetBox"
 // import axios from "axios"
 import Post from "./post/Post"
+import { LanguageContext, useLang } from "../../LanguageContext"
 
 export const Feed=()=>{
     
     const [posts,setposts]=useState([])
+    const {lang}=useLang()
 
     useEffect(()=>{
         // fetch('https://twitter-bcakend.vercel.app/post')
@@ -15,11 +17,14 @@ export const Feed=()=>{
             setposts(data)
         })
 
-    },[posts])
+        
+
+    },[posts,lang])
 
     
+    
     return(
-        <div>
+        <div >
             
             <TweetBox/>
             {

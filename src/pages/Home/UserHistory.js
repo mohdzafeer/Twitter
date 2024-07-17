@@ -1,5 +1,5 @@
 import { Box, IconButton, Modal } from "@mui/material"
-import { useEffect, useState } from "react"
+import {  useContext, useEffect, useState } from "react"
 
 // import { useTranslation } from "react-i18next"
 // import { getUserInfo } from "../Profile/UserInfo/getUserinfo"
@@ -10,6 +10,8 @@ import { useEffect, useState } from "react"
 import { IoIosCloseCircleOutline } from "react-icons/io"
 import axios from "axios"
 import { useTranslation } from "react-i18next"
+import { LanguageContext, useLang } from "../../LanguageContext"
+
 
 
 const style = {
@@ -28,6 +30,9 @@ const style = {
 }
 const UserHistory = () => {
 
+
+   
+
     const { t } = useTranslation();
     const [open, setOpen] = useState(false)
 
@@ -44,12 +49,20 @@ const UserHistory = () => {
         };
 
         fetchData();
-    }, []);
+
+       
+    }, );
+
+
+    const{lang}=useLang()
+    const dynamicClassButton=lang==='en'? "bg-blue-500 hover:bg-blue-600 active:bg-blue-500" : lang==='hn' ? 'bg-orange-500 hover:bg-orange-600 active:bg-orange-500' : lang==='fr' ? 'bg-red-500 hover:bg-red-600 active:bg-red-500':lang==='sp' ? 'bg-blue-500 hover:bg-blue-600 active:bg-blue-500':lang==='pr'?'bg-pink-500 hover:bg-pink-600 active:bg-pink-500':lang==='bn'?'bg-green-500 hover:bg-green-600 active:bg-green-500':lang==='tm'?'bg-rose-500 hover:bg-rose-600 active:bg-rose-500': ''
 
 
     return (
         <div>
-            <button className='shadow-xl text-white bg-blue-500 hover:bg-blue-600 active:scale-90  active:bg-blue-500duration-300 px-4 py-2 font-bold duration-200 border  rounded-full' onClick={() => setOpen(true)}>{t(`View Previous Users' Info`)}</button>
+            <button className={`shadow-xl text-white ${dynamicClassButton} active:scale-90   px-4 py-2 font-bold duration-200 border  rounded-full`} onClick={() => {
+                setOpen(true)
+                }}>{t(`View Previous Users' Info`)}</button>
             <Modal
                 open={open}
                 aria-labelledby="modal-modal-title"

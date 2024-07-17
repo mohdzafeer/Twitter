@@ -1,4 +1,4 @@
-import  { useState } from 'react'
+import  { useContext, useEffect, useState } from 'react'
 import { MdOutlineAddPhotoAlternate } from "react-icons/md";
 import axios from "axios"
 import useLoggedInUser from '../../../hooks/useLoggedInUser';
@@ -6,6 +6,7 @@ import useLoggedInUser from '../../../hooks/useLoggedInUser';
 import { auth } from '../../../firebase.init';
 import { Link } from 'react-router-dom'
 import { useTranslation } from 'react-i18next';
+import { LanguageContext, useLang } from '../../../LanguageContext';
 
 // import Date from "./Date";
 const TweetBox = () => {
@@ -144,12 +145,17 @@ const TweetBox = () => {
 
     const { t} = useTranslation();
 
-    
+    const {lang}=useLang()
+
+    const dynamicClassBackground=lang==='en'? "bg-white" : lang==='hn' ? 'bg-orange-100' : lang==='fr' ? 'bg-red-100':lang==='sp' ? 'bg-blue-100':lang==='pr'?'bg-pink-100':lang==='bn'?'bg-green-100':lang==='tm'?'bg-rose-100': ''
+     
+    const dynamicClassButton=lang==='en'? "bg-blue-500 hover:bg-blue-600 active:bg-blue-500" : lang==='hn' ? 'bg-orange-500 hover:bg-orange-600 active:bg-orange-500' : lang==='fr' ? 'bg-red-500 hover:bg-red-600 active:bg-red-500':lang==='sp' ? 'bg-blue-500 hover:bg-blue-600 active:bg-blue-500':lang==='pr'?'bg-pink-500 hover:bg-pink-600 active:bg-pink-500':lang==='bn'?'bg-green-500 hover:bg-green-600 active:bg-green-500':lang==='tm'?'bg-rose-500 hover:bg-rose-600 active:bg-rose-500': ''
+
 
 
     return (
-        <div className='rounded-xl border  px-3 py-2 shadow-xl my-10 flex flex-col  gap-4'>
-            <div className='flex items-center gap-3 text-lg font-bold rounded-full'>
+        <div className={`rounded-xl border  px-3 py-2 shadow-xl my-10 flex flex-col  gap-4  ${dynamicClassBackground}`} >
+            <div className='flex items-center gap-3 text-lg font-bold rounded-full '>
                 <Link to={'/home/profile'}>
                     <img src={
                         userProfilePic
@@ -158,9 +164,9 @@ const TweetBox = () => {
                         className='rounded-full'
                     />
                 </Link>
-                <p className='text-gray-500'>{t(`What's happening`)} {Name} ?</p>
+                <p className={`text-gray-500`}>{t(`What's happening`)} {Name} ?</p>
             </div>
-            <form className='flex items-center gap-3 mb-5 px-3' onSubmit={handleTweet}>
+            <form className='flex items-center gap-3 mb-5 px-3 ' onSubmit={handleTweet}>
                 <div>
                     <label htmlFor='image' className='text-blue-400 font-semibold cursor-pointer' >
                         {
@@ -187,8 +193,8 @@ const TweetBox = () => {
 
                 <input
                     onChange={(e) => setpost(e.target.value)}
-                    className='m-2 px-3 py-2 bg-blue-100  rounded-full w-2/3 lg:font-semibold font-normal' placeholder={t('Enter your though here')} />
-                <button type="submit" className="lg:m-2 lg:px-10 px-2 lg:py-2 py-1 bg-blue-500 hover:bg-blue-600 active:bg-blue-700 duration-200 text-white cursor-pointer rounded-full lg:font-bold font-normal active:scale-95">{t('Tweet')}</button>
+                    className='m-2 px-3 py-2 bg-gray-100 rounded-full w-2/3 lg:font-semibold font-normal' placeholder={t('Enter your though here')} />
+                <button type="submit" className={`lg:m-2 lg:px-10 px-2 lg:py-2 py-1 ${dynamicClassButton} duration-200 text-white cursor-pointer rounded-full lg:font-bold font-normal active:scale-95`}>{t('Tweet')}</button>
             </form>
         </div>
     )

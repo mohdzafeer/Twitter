@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import { IconButton, Modal, TextField } from '@mui/material'
 import { Box } from '@mui/material'
 import { IoIosCloseCircleOutline } from "react-icons/io";
@@ -7,6 +7,7 @@ import axios from 'axios';
 // import useLoggedInUser from '../../../hooks/useLoggedInUser';
 import { auth } from '../../../firebase.init';
 import { useTranslation } from 'react-i18next';
+import { LanguageContext, useLang } from '../../../LanguageContext';
 
 const style = {
     position: 'absolute',
@@ -111,9 +112,12 @@ export default function EditProfile({ user, loggedInUser }) {
 
     }
 
+
+     const{lang}=useLang()
+    const dynamicClassButton=lang==='en'? "bg-blue-500 hover:bg-blue-600 active:bg-blue-500" : lang==='hn' ? 'bg-orange-500 hover:bg-orange-600 active:bg-orange-500' : lang==='fr' ? 'bg-red-500 hover:bg-red-600 active:bg-red-500':lang==='sp' ? 'bg-blue-500 hover:bg-blue-600 active:bg-blue-500':lang==='pr'?'bg-pink-500 hover:bg-pink-600 active:bg-pink-500':lang==='bn'?'bg-green-500 hover:bg-green-600 active:bg-green-500':lang==='tm'?'bg-rose-500 hover:bg-rose-600 active:bg-rose-500': ''
     return (
         <div>
-            <button className='absolute right-3 bottom-auto bg-blue-600 hover:bg-blue-700  active:bg-blue-600 duration-300 px-4 py-2 mx-5 mt-5  font-bold text-white border hover:border-black rounded-full' onClick={() => setOpen(true)}>{t('Edit Profile')}</button>
+            <button className={`absolute right-3 bottom-auto ${dynamicClassButton} duration-300 px-4 py-2 mx-5 mt-5  font-bold text-white border hover:border-black rounded-full`} onClick={() => setOpen(true)}>{t('Edit Profile')}</button>
 
             <Modal
                 open={open}
@@ -125,7 +129,7 @@ export default function EditProfile({ user, loggedInUser }) {
                         <IconButton onClick={() => setOpen(false)}><IoIosCloseCircleOutline /></IconButton>
                         <div className='flex items-center justify-between'>
                             <h2 className='lg:text-2xl lg:font-bold font-semibold'>{t('Edit Profile')}</h2>
-                            <button className='lg:px-4 px-2 lg:py-2 py-1 bg-blue-500 hover:bg-blue-600 active:bg-blue-500 font-bold m-2 rounded-full text-white duration-300' onClick={handleSave}>{t('Save')}</button>
+                            <button className={`lg:px-4 px-2 lg:py-2 py-1  font-bold m-2 rounded-full text-white duration-300 ${dynamicClassButton}`} onClick={handleSave}>{t('Save')}</button>
                         </div>
                     </div>
                     <div>

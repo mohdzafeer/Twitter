@@ -38,3 +38,29 @@
 }
 
 
+
+
+/* styles.css */
+.background-fr {
+  background-color: #ffe6e6; /* Very light red */
+}
+
+.background-hn {
+  background-color: #e6ffe6; /* Very light green */
+}
+
+.background-sp {
+  background-color: #e6f7ff; /* Very light blue */
+}
+
+.background-pr {
+  background-color: #f3e6ff; /* Very light purple */
+}
+
+.background-tm {
+  background-color: #ffe6f2; /* Very light pink */
+}
+
+.background-bn {
+  background-color: #fff5e6; /* Very light orange */
+}

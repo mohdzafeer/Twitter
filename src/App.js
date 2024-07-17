@@ -20,6 +20,8 @@ import { Widgets } from "./pages/Home/Widgets";
 import { Sidebar } from "./pages/Home/Sidebar";
 import Success from "./pages/Premium/Success";
 import Failed from "./pages/Premium/Failed";
+
+
 // import { ThemeProvider } from "./context/ThemeContext";
 // import { ThemeProvider } from "@emotion/react";
 
@@ -33,10 +35,15 @@ import Failed from "./pages/Premium/Failed";
 
 
 function App() {
+
+
+  
+
   return (
-    <div>
+    <div >
 
       
+
         <Router>
           <Routes>
             <Route path="/" element={<ProtectedRoute><Home /></ProtectedRoute>}>
@@ -74,6 +81,9 @@ function App() {
           </Routes>
         </Router>
       
+
+
+
 
     </div>
   );
